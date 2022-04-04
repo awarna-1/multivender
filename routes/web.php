@@ -217,15 +217,11 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('staff', 'StaffController@index')->name('staff');
           Route::get('staff_add', function () {
             return view('admin.oprations.staff_add');
-        });
-        Route::get('staff/edit/{id}' , [StaffController::class, 'store']);
-    
+        });    
         Route::post('staff/new' , [StaffController::class, 'create']);
-     
-
         Route::post('staff', 'StaffController@create')->name('StaffCreate');
+        Route::get('staff/edit/{id}' , [StaffController::class, 'store']);
         Route::get('staff/Delete/{id?}', 'StaffController@del')->name('StaffDelete');
-        Route::get('staff/Edit/{id?}', 'StaffController@edit')->name('StaffDelete');
         Route::post('/staff/update', 'StaffController@update')->name('StaffUpdate');
 
         //Attribute routes

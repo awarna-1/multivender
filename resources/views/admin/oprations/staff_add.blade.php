@@ -17,7 +17,16 @@
             </div>
             <!--Page Heading End -->
         </div>
-
+        @if ($errors->any())
+                <div class="alert alert-danger">
+                     <ul>
+                       @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                       @endforeach
+                      </ul>
+                </div>
+                @endif
+ 
         <div class="std-prof tech_profile">
             <h2 class="pb-3"> Staff Profile</h2>
             <form action="{{asset('admin/staff/new')}}" method="POST">
@@ -25,7 +34,7 @@
                 <div class="form-group row">
                     <label for="name" class="col-sm-2 col-form-label">Name</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="name" name="user" placeholder="Name">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -80,7 +89,7 @@
                 <div class="form-group row">
                     <label for="NewPassword" class="col-sm-2 col-form-label">New Password</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="NewPassword" name="new_pwd" placeholder="New Password">
+                        <input type="text" class="form-control" id="NewPassword" name="password" placeholder="New Password">
                     </div>
                 </div>
 
@@ -88,7 +97,7 @@
                 <div class="form-group row">
                     <label for="Re-EnterPassword" class="col-sm-2 col-form-label">Re-Enter Password</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="Re-EnterPassword" name="confirm_password" placeholder="Re-Enter Password">
+                        <input type="text" class="form-control" id="Re-EnterPassword" name="conform_password" placeholder="Re-Enter Password">
                     </div>
                 </div>
 
