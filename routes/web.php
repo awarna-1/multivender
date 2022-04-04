@@ -217,7 +217,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
           Route::get('staff_add', function () {
             return view('admin.oprations.staff_add');
         });
-        Route::get('staff/new' , [StaffController::class, 'create']);
+        Route::post('staff/new' , [StaffController::class, 'create']);
         // Route::get('staff_add', function () {
         //     return view('admin.oprations.staffUpdate');
         // });

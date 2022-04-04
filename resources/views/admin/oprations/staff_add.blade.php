@@ -20,29 +20,30 @@
 
         <div class="std-prof tech_profile">
             <h2 class="pb-3"> Staff Profile</h2>
-            <form>
+            <form action="{{asset('admin/staff/new')}}" method="POST">
+                @csrf
                 <div class="form-group row">
                     <label for="name" class="col-sm-2 col-form-label">Name</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="name" placeholder="Name">
+                        <input type="text" class="form-control" id="name" name="user" placeholder="Name">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="phone" class="col-sm-2 col-form-label">Phone No.</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="pone" placeholder="Phone">
+                        <input type="text" class="form-control" id="pone" name="phone" placeholder="Phone">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="email" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="email" placeholder="user@gmail.com">
+                        <input type="text" class="form-control" id="email" name="email" placeholder="user@gmail.com">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="Qualification" class="col-sm-2 col-form-label">Qualification</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="qualification" placeholder="Qualification">
+                        <input type="text" class="form-control" id="qualification" name="qual" placeholder="Qualification">
                     </div>
                 </div>
 
@@ -70,7 +71,7 @@
                 <div class="form-group row">
                     <label for="membership" class="col-sm-2 col-form-label">Role</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="Membership" placeholder="Role">
+                        <input type="text" class="form-control" id="Membership" name="role" placeholder="Role">
                     </div>
                 </div>
 
@@ -79,7 +80,7 @@
                 <div class="form-group row">
                     <label for="NewPassword" class="col-sm-2 col-form-label">New Password</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="NewPassword" placeholder="New Password">
+                        <input type="text" class="form-control" id="NewPassword" name="new_pwd" placeholder="New Password">
                     </div>
                 </div>
 
@@ -87,7 +88,7 @@
                 <div class="form-group row">
                     <label for="Re-EnterPassword" class="col-sm-2 col-form-label">Re-Enter Password</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="Re-EnterPassword" placeholder="Re-Enter Password">
+                        <input type="text" class="form-control" id="Re-EnterPassword" name="confirm_password" placeholder="Re-Enter Password">
                     </div>
                 </div>
 
@@ -101,25 +102,25 @@
                     <div class="form-group row">
                         <label for="accholder" class="col-sm-2 col-form-label">Account Holder</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="accholder" placeholder="Account Holder">
+                            <input type="text" class="form-control" id="accholder" name="acc_hol" placeholder="Account Holder">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="accnum" class="col-sm-2 col-form-label">Account Number</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="accnum" placeholder="Account Number">
+                            <input type="text" class="form-control" id="accnum" name="acc_num" placeholder="Account Number">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="bank" class="col-sm-2 col-form-label">Bank Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="bank" placeholder="Bank Name">
+                            <input type="text" class="form-control" id="bank" name="bank_name" placeholder="Bank Name">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="ifsc" class="col-sm-2 col-form-label">IFSC Code</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="Code" placeholder=" IFSC Code">
+                            <input type="text" class="form-control" id="Code" name="ifc_code" placeholder=" IFSC Code">
                         </div>
                     </div>
                 </div>
