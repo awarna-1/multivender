@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Address;
+use App\Models\Admin;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 use App\Models\Product;
@@ -27,6 +28,13 @@ class commanController extends Controller
      */
 
 
+     public function update_active($admin_id , $status){
+
+         $admin = Admin::where('id' , $admin_id)->get();
+         return $admin;
+         $admin->update('status' , $status);
+
+     }
     public function add_address(Request $request)
     {
 
