@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\AttvalController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\commanController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\Live_searchController;
@@ -22,6 +23,7 @@ use App\Models\Image_table;
 use App\Models\Variations;
 use App\Models\Color;
 use App\Models\User;
+use GuzzleHttp\Promise\Create;
 use Modules\Blog\Http\Controllers\BlogController;
 
 use Modules\BuyNow\Http\Controllers\BuyNowController;
@@ -212,9 +214,13 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
         //Staff routes
         Route::get('staff', 'StaffController@index')->name('staff');
-        Route::get('staff_add', function () {
-            return view('admin.oprations.staffUpdate');
+          Route::get('staff_add', function () {
+            return view('admin.oprations.staff_add');
         });
+        Route::get('staff/new' , [StaffController::class, 'create']);
+        // Route::get('staff_add', function () {
+        //     return view('admin.oprations.staffUpdate');
+        // });
 
 
         Route::post('staff', 'StaffController@create')->name('StaffCreate');
