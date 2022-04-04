@@ -52,7 +52,8 @@
                             <span class="" ><a href="#">Deactive</a></span><span><a href="#" onclick="deactive()">Active</a></span>
                         </td>
                         <td>
-                            <button>Edit</button> <button> delete</button>
+                        <button type="button" class="btn btn-success">Edit</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
 
                         </td>
                     </tr>
