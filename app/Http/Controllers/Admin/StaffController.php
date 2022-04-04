@@ -12,7 +12,6 @@ class StaffController extends Controller
     public function index()
     {
         $data = Admin::paginate(12);
-
         return view('admin.oprations.staff', ['members' => $data]);
     }
 

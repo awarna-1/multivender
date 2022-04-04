@@ -26,87 +26,38 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Phone No.</th>
-                            <th>Email Address</th>
-                            <th>Date</th>
-                            <th>Role</th>
+                            <th>Email Address</th>  
+                             <th>Role</th>
+                               <th>Created</th>
+                            <th class="text-center">Active</th>
                             <th class="text-center">Action</th>
+
                         </tr>
                     </thead>
+                    <?php $i=1; ?>
+                        @foreach($members as $member)
                     <tr>
-                        <td>1</td>
-                        <td>ABC</td>
-                        <td>012345678</td>
-                        <td>User@mail.com</td>
-                        <td>dd/mm/yyyy</td>
-                        <td>
-                            <div class="dropdown">
-                                <button class="dropbtn">Add</button>
-                                <div class="dropdown-content">
-                                    <a href="#">Admin</a>
-                                    <a href="#">Shop Manager</a>
-                                    <a href="#">Ecommerce Executive</a>
-                                    <a href="#"> Vendors</a>
-                                </div>
-                            </div>
-                        </td>
+                       
+                        <td>{{$i++}}</td>
+                        <td>{{$member->name}}</td>
+                        <td>{{$member->phone}}</td>
+                        <td>{{$member->email}}</td>
+                        <td>{{$member->role}}</td>
+                        <td>{{$member->created_at}}</td>
                         <td class="text-center">
                             <label class="switch">
-                                <input type="checkbox" checked>
+                                <input type="checkbox" checked onclick="active()" id="active">
                                 <span class="slider round"></span>
                             </label><br>
-                            <span class="pr-2"><a href="#">Deactive</a></span><span><a href="#">Active</a></span>
+                            <span class="" ><a href="#">Deactive</a></span><span><a href="#" onclick="deactive()">Active</a></span>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>ABC</td>
-                        <td>012345678</td>
-                        <td>User@mail.com</td>
-                        <td>dd/mm/yyyy</td>
                         <td>
-                            <div class="dropdown">
-                                <button class="dropbtn">Add</button>
-                                <div class="dropdown-content">
-                                    <a href="#">Admin</a>
-                                    <a href="#">Shop Manager</a>
-                                    <a href="#">Ecommerce Executive</a>
-                                    <a href="#"> Vendors</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="text-center">
-                            <label class="switch">
-                                <input type="checkbox" checked>
-                                <span class="slider round"></span>
-                            </label><br>
-                            <span class="pr-2"><a href="#">Deactive</a></span><span><a href="#">Active</a></span>
+                            <button>Edit</button> <button> delete</button>
+
                         </td>
                     </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>ABC</td>
-                        <td>012345678</td>
-                        <td>User@mail.com</td>
-                        <td>dd/mm/yyyy</td>
-                        <td>
-                            <div class="dropdown">
-                                <button class="dropbtn">Add</button>
-                                <div class="dropdown-content">
-                                    <a href="#">Admin</a>
-                                    <a href="#">Shop Manager</a>
-                                    <a href="#">Ecommerce Executive</a>
-                                    <a href="#"> Vendors</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="text-center">
-                            <label class="switch">
-                                <input type="checkbox" checked>
-                                <span class="slider round"></span>
-                            </label><br>
-                            <span class="pr-2"><a href="">Deactive</a></span><span><a href="#">Active</a></span>
-                        </td>
-                    </tr>
+                    @endforeach
+
                 </table>
 
 
@@ -118,7 +69,28 @@
 
     </div>
     <!-- END MAIN CONTAINER -->
+<!-- 
+<script>
 
+function active(){
+var active;
 
+if($('#active').is(":checked")) active ='1';
+else active ='0';
+
+$.ajax({
+
+    'url':'/admin/active',
+    'type': 'post',
+    'data': active
+}
+     function success(result){
+
+     }
+
+)
+
+} -->
+</script> 
 
     @include('staff.layouts.footer') 
