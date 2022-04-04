@@ -30,10 +30,7 @@ class commanController extends Controller
 
      public function update_active($admin_id , $status){
 
-         $admin = Admin::where('id' , $admin_id)->get();
-         return $admin;
-         $admin->update('status' , $status);
-
+         $admin = Admin::where('id' , $admin_id)->update(['status'=> $status]);
      }
     public function add_address(Request $request)
     {
