@@ -16,6 +16,7 @@ use App\Http\Controllers\commanController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\Live_searchController;
 use App\Http\Controllers\WishlistController;
+use App\Models\Admin;
 use App\Models\Brand;
 use App\Models\Product;
 use App\Models\Category;
@@ -218,8 +219,13 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
             return view('admin.oprations.staff_add');
         });
         Route::get('staff/new' , [StaffController::class, 'create']);
-        // Route::get('staff_add', function () {
-        //     return view('admin.oprations.staffUpdate');
+        Route::get('staff/edit/{id}' , [StaffController::class, 'store']);
+
+      
+        // Route::get('staff/edit/{id}', function () {
+        //     return $id;
+        //     $data = Admin::where('id' , $id)->get();
+        //     return view('admin.oprations.staffUpdate' , compact('data'));
         // });
 
 

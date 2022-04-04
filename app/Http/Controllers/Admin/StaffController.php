@@ -88,4 +88,12 @@ class StaffController extends Controller
             return redirect('/admin/staff')->with('wrong', 'something went wrong');
         }
     }
+
+
+
+    function store($id){
+        $data = Admin::where('id' , $id)->get();
+        return view('admin.oprations.staffUpdate' , compact('data'));
+
+    }
 }
