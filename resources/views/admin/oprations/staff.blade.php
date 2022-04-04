@@ -19,48 +19,6 @@
 
         <div class="lead_mang allstd-page" id="navbarscroll">
             <h2>All Staff</h2>
-            <div class="lead_mang allstd-page" id="navbarscroll">
-                <h2>All Staff</h2>
-
-                <table class="table table-striped custab">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Phone No.</th>
-                            <th>Email Address</th>  
-                             <th>Role</th>
-                               <th>Created</th>
-                            <th class="text-center">Active</th>
-                            <th class="text-center">Action</th>
-
-                        </tr>
-                    </thead>
-                    <?php $i=1; ?>
-                        @foreach($members as $member)
-                    <tr>
-                        <td>{{$i++}}</td>
-                        <td>{{$member->name}}</td>
-                        <td>{{$member->phone}}</td>
-                        <td>{{$member->email}}</td>
-                        <td>{{$member->role}}</td>
-                        <td>{{$member->created_at}}</td>
-                        <td class="text-center">
-                            <label class="switch">
-                                <input type="checkbox" checked onclick="active(this.value)" id="active" value="{{$member->id}}">
-                                <span class="slider round"></span>
-                            </label><br>
-                            <span class="" ><a href="#">Deactive</a></span><span><a href="#" onclick="deactive()">Active</a></span>
-                        </td>
-                        <td>
-                        <button type="button" class="btn btn-success">Edit</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
-
-                        </td>
-                    </tr>
-                    @endforeach
-
-                </table>
 
             <table class="table table-striped custab">
                 <thead>
@@ -71,7 +29,7 @@
                         <th>Email Address</th>
                         <th>Role</th>
                         <th>Created</th>
-                        <th class="text-center">Active</th>
+                        <th class="text-center">Status</th>
                         <th class="text-center">Action</th>
 
                     </tr>
@@ -87,20 +45,19 @@
                     <td>{{$member->created_at}}</td>
                     <td class="text-center">
                         <label class="switch">
-                            <input type="checkbox" <?php if($member->status == 1) echo "checked"; ?> onclick="active(this.value)" id="active" value="{{$member->id}}">
+                        <input type="checkbox" <?php if($member->status == 1) echo "checked"; ?> onclick="active(this.value)" id="active" value="{{$member->id}}">
                             <span class="slider round"></span>
                         </label><br>
                     </td>
                     <td>
-                        <button>Edit</button> <button> delete</button>
+                        <button type="button" class="btn btn-success">Edit</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
 
                     </td>
                 </tr>
                 @endforeach
 
             </table>
-
-
         </div>
 
 
