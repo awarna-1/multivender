@@ -37,7 +37,6 @@
                     <?php $i=1; ?>
                         @foreach($members as $member)
                     <tr>
-                       
                         <td>{{$i++}}</td>
                         <td>{{$member->name}}</td>
                         <td>{{$member->phone}}</td>
@@ -46,7 +45,7 @@
                         <td>{{$member->created_at}}</td>
                         <td class="text-center">
                             <label class="switch">
-                                <input type="checkbox" checked onclick="active()" id="active">
+                                <input type="checkbox" checked onclick="active(this.value)" id="active" value="{{$member->id}}">
                                 <span class="slider round"></span>
                             </label><br>
                             <span class="" ><a href="#">Deactive</a></span><span><a href="#" onclick="deactive()">Active</a></span>
@@ -70,28 +69,25 @@
 
     </div>
     <!-- END MAIN CONTAINER -->
-<!-- 
 <script>
-
-function active(){
+function active(admin_id){
 var active;
 
 if($('#active').is(":checked")) active ='1';
 else active ='0';
 
 $.ajax({
+            url: 'update_active/'+admin_id+'/'+active,
+            type: 'get',
+            data: {
+            },
+            success: function(result) {
+console.log(result);
+            }
 
-    'url':'/admin/active',
-    'type': 'post',
-    'data': active
+        });
+
 }
-     function success(result){
-
-     }
-
-)
-
-} -->
 </script> 
 
     @include('staff.layouts.footer') 
