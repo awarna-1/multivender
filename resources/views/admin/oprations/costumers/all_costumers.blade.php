@@ -44,7 +44,7 @@
                         <!-- <td>{{$user->address}}</td> -->
                         <td class="text-center">
                             <a href="{{asset('admin/customer/edit/'.$user->id)}}"><button type="button" class="btn btn-success">Edit</button></a>
-                            <a href="{{asset('admin/customer/delete/'.$user->id)}}"> <button type="button" class="btn btn-danger">Delete</button></a>
+                            <a href="{{asset('admin/customer/delete/'.$user->id)}}"><button type="button" class="btn btn-danger">Delete</button></a>
                         </td>
                     </tr>
                     @endforeach

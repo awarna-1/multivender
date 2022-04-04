@@ -218,9 +218,9 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
 
         Route::post('staff', 'StaffController@create')->name('StaffCreate');
-        Route::get('staffDelete/{id?}', 'StaffController@del')->name('StaffDelete');
-        Route::get('staffEdit/{id?}', 'StaffController@edit')->name('StaffDelete');
-        Route::post('/staffupdate', 'StaffController@update')->name('StaffUpdate');
+        Route::get('staff/Delete/{id?}', 'StaffController@del')->name('StaffDelete');
+        Route::get('staff/Edit/{id?}', 'StaffController@edit')->name('StaffDelete');
+        Route::post('/staff/update', 'StaffController@update')->name('StaffUpdate');
 
         //Attribute routes
 

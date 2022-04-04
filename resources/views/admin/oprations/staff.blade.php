@@ -50,8 +50,8 @@
                         </label><br>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-success">Edit</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
+                    <a href="{{asset('admin/staff/Edit/'.$member->id)}}"><button type="button" class="btn btn-success">Edit</button></a>
+                    <a href="{{asset('admin/staff/Delete/'.$member->id)}}"><button type="button" class="btn btn-danger">Delete</button></a>
 
                     </td>
                 </tr>
