@@ -49,38 +49,24 @@
                         <input type="text" class="form-control" id="email" name="email" placeholder="user@gmail.com">
                     </div>
                 </div>
-                <div class="form-group row">
+                <!-- <div class="form-group row">
                     <label for="Qualification" class="col-sm-2 col-form-label">Qualification</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="qualification" name="qual" placeholder="Qualification">
                     </div>
-                </div>
+                </div> -->
 
-                <div class="form-group row">
-                    <label for="Qualification" class="col-sm-2 col-form-label">Location</label>
-                    <div class="col-sm-10">
-                        <div class="tech_loc">
-                            <div class="dropdown">
-                                <button onclick="myFunction()" class="dropbtn">Search....</button>
-                                <div id="myDropdown" class="dropdown-content">
-                                    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-                                    <a href="#about">About</a>
-                                    <a href="#base">Base</a>
-                                    <a href="#blog">Blog</a>
-                                    <a href="#contact">Contact</a>
-                                    <a href="#custom">Custom</a>
-                                    <a href="#support">Support</a>
-                                    <a href="#tools">Tools</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
 
                 <div class="form-group row">
                     <label for="membership" class="col-sm-2 col-form-label">Role</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="Membership" name="role" placeholder="Role">
+                    <select class="form-control" id="sel1" name="role">
+                                   <option value="none" selected disabled hidden>Select your Role</option>
+                                   <option value="Admin">Admin</option>
+                                   <option value="Seller">Seller</option>
+                                   <option value="Executive">Executive</option>                             
+                     </select>
                     </div>
                 </div>
 
@@ -89,7 +75,7 @@
                 <div class="form-group row">
                     <label for="NewPassword" class="col-sm-2 col-form-label">New Password</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="NewPassword" name="password" placeholder="New Password">
+                        <input type="password" class="form-control" id="NewPassword" name="password" placeholder="New Password">
                     </div>
                 </div>
 
@@ -97,7 +83,7 @@
                 <div class="form-group row">
                     <label for="Re-EnterPassword" class="col-sm-2 col-form-label">Re-Enter Password</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="Re-EnterPassword" name="conform_password" placeholder="Re-Enter Password">
+                        <input type="password" class="form-control" id="Re-EnterPassword" name="conform_password" placeholder="Re-Enter Password">
                     </div>
                 </div>
 

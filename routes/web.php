@@ -220,7 +220,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         });    
         Route::post('staff/new' , [StaffController::class, 'create']);
         Route::post('staff', 'StaffController@create')->name('StaffCreate');
-        Route::get('staff/edit/{id}' , [StaffController::class, 'store']);
+        Route::get('staff/edit/{id}' , [StaffController::class, 'edit']);
         Route::get('staff/Delete/{id?}', 'StaffController@del')->name('StaffDelete');
         Route::post('/staff/update', 'StaffController@update')->name('StaffUpdate');
 

@@ -32,56 +32,32 @@
             <form action="{{asset('admin/staff/update')}}" method="POST">
                 @csrf
                 <div class="form-group row">
-                    <input type="hidden" name="id" value="{{$data[0]->id}}">
+                    <input type="hidden" name="id" value="{{$data['id']}}">
                     <label for="name" class="col-sm-2 col-form-label">Name</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="{{$data[0]->name}}">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="{{$data['name']}}">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="phone" class="col-sm-2 col-form-label">Phone No.</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="pone" name="phone" placeholder="Phone" value="{{$data[0]->phone}}">
+                        <input type="text" class="form-control" id="pone" name="phone" placeholder="Phone" value="{{$data['phone']}}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="email" class="col-sm-2 col-form-label">Email</label>
+                    <label for="email" class="col-sm-2 col-form-label">Email</label> 
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="email" name="email" placeholder="user@gmail.com" value="{{$data[0]->email}}">
+                        <input type="text" class="form-control" id="email" name="email" placeholder="user@gmail.com" value="{{$data['email']}}">
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="Qualification" class="col-sm-2 col-form-label">Qualification</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="qualification" name="qual" placeholder="Qualification">
-                    </div>
-                </div>
+               
 
-                <div class="form-group row">
-                    <label for="Qualification" class="col-sm-2 col-form-label">Location</label>
-                    <div class="col-sm-10">
-                        <div class="tech_loc">
-                            <div class="dropdown">
-                                <button onclick="myFunction()" class="dropbtn">Search....</button>
-                                <div id="myDropdown" class="dropdown-content">
-                                    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-                                    <a href="#about">About</a>
-                                    <a href="#base">Base</a>
-                                    <a href="#blog">Blog</a>
-                                    <a href="#contact">Contact</a>
-                                    <a href="#custom">Custom</a>
-                                    <a href="#support">Support</a>
-                                    <a href="#tools">Tools</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="form-group row">
                     <label for="membership" class="col-sm-2 col-form-label">Role</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="Membership" name="role" placeholder="Role" value="{{$data[0]->role}}">
+                    
+                        <input type="text" class="form-control" id="Membership" name="role" placeholder="Role" value="{{$data['role']}}">
                     </div>
                 </div>
 
@@ -90,7 +66,7 @@
                 <div class="form-group row">
                     <label for="NewPassword" class="col-sm-2 col-form-label">New Password</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="NewPassword" name="password" placeholder="New Password">
+                        <input type="password" class="form-control" id="NewPassword" name="password" placeholder="New Password">
                     </div>
                 </div>
 
@@ -98,7 +74,7 @@
                 <div class="form-group row">
                     <label for="Re-EnterPassword" class="col-sm-2 col-form-label">Re-Enter Password</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="Re-EnterPassword" name="conform_password" placeholder="Re-Enter Password">
+                        <input type="password" class="form-control" id="Re-EnterPassword" name="conform_password" placeholder="Re-Enter Password">
                     </div>
                 </div>
 
@@ -112,25 +88,26 @@
                     <div class="form-group row">
                         <label for="accholder" class="col-sm-2 col-form-label">Account Holder</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="accholder" name="acc_hol" placeholder="Account Holder">
+                            
+                            <input type="text" class="form-control" id="accholder" name="acc_hol" placeholder="Account Holder" value="@if(isset($data['bank'])) {{$data['bank'][0]->account_holder}} @endif">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="accnum" class="col-sm-2 col-form-label">Account Number</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="accnum" name="acc_num" placeholder="Account Number">
+                            <input type="text" class="form-control" id="accnum" name="acc_num" placeholder="Account Number" value="@if(isset($data['bank'])) {{$data['bank'][0]->account_number}} @endif">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="bank" class="col-sm-2 col-form-label">Bank Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="bank" name="bank_name" placeholder="Bank Name">
+                            <input type="text" class="form-control" id="bank" name="bank_name" placeholder="Bank Name" value="@if(isset($data['bank'])) {{$data['bank'][0]->bank_name}} @endif">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="ifsc" class="col-sm-2 col-form-label">IFSC Code</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="Code" name="ifc_code" placeholder=" IFSC Code">
+                            <input type="text" class="form-control" id="Code" name="ifc_code" placeholder=" IFSC Code" value="@if(isset($data['bank'])) {{$data['bank'][0]->ifsc}} @endif">
                         </div>
                     </div>
                 </div>

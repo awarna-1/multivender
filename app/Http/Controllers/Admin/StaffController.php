@@ -81,6 +81,10 @@ class StaffController extends Controller
     {
         $id  = $request->id;
         $data = Admin::find($id);
+        $bank_data = DB::table("bank_detials")->where('user_id' , $id)->get();
+        if(isset($bank_data[0])  ){
+            $data['bank']=$bank_data;
+        }
         return view('admin.oprations.staffUpdate', ['data' => $data]);
     }
 
@@ -103,16 +107,30 @@ class StaffController extends Controller
         $data['password'] = Hash::make($password);
         $data['role'] = $request->role;
         $com = $admin_data->update($data);
-
-        $bank_details = DB::table('bank_detials')->where('user_id' ,$request->id);
-        $bank_data = [
-            'user_id' => $request->id,
-            'account_holder' => $request->acc_hol,
-            'account_number	' => $request->acc_num,
-            'bank_name'     => $request->bank_name,
-            'ifc_code'      => $request->ifc_code
+        $checkbank = DB::table('bank_detials')->where('user_id' ,$request->id)->count();
+         if($checkbank == 1){
+               $bank_details = DB::table('bank_detials')->where('user_id' ,$request->id);
+               $bank_data = [
+               'user_id' => $request->id,
+               'account_holder' => $request->acc_hol,
+               'account_number' => $request->acc_num,
+               'bank_name'     => $request->bank_name,
+               'ifsc'      => $request->ifc_code
         ];
         $bank_details->update($bank_data);
+    }else{
+        $data = new admin;
+
+        $data->name = $request->input('name');
+        $data->email = $request->input('email');
+        $data->phone = $request->input('phone');
+        $password = $request->input('password');
+        $data->password = Hash::make($password);
+        $data->role = $request->input('role');
+
+        $done = $data->save();
+    }
+        
 
         if ($com) {
             return redirect('/admin/staff')->with('message', 'Staff details updated succesfully');
@@ -121,11 +139,4 @@ class StaffController extends Controller
         }
     }
 
-
-
-    function store($id){
-        $data = Admin::where('id' , $id)->get();
-        return view('admin.oprations.staffUpdate' , compact('data'));
-
-    }
 }
