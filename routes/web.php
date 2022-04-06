@@ -331,3 +331,21 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         // wish list routs
 
 });
+
+
+// Additional
+
+
+Route::get('admin/generation', function () {
+    return view('admin.oprations.order.label_generate');
+    ///return 'bkuhjviokokokokokokokokokokokok';
+});
+
+Route::get('admin/details', function () {
+    return view('admin.oprations.order.order_details');
+});
+
+
+Route::get('admin/products', function () {
+    return view('admin.oprations.order.all_product');
+});

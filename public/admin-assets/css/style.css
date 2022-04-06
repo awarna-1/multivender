@@ -993,10 +993,10 @@ div#content table.table.table-striped.custab textarea {
     font-size: 20px;
 }
 .order_details .tab-content .pdt_blog h4 span{
-    float: right;
+    float: right;    font-size: 15px;
 }
 .order_details .tab-content .pdt_blog h3.quality {
-    color: #000;
+    color: #000;    font-size: 20px;
 }
 .order_details .tab-content .pdt_blog img {
     width: 67%;
@@ -1977,3 +1977,525 @@ hr.ddd{border-top: 1px solid #ddd;}
     display: block;
 }
 
+
+
+
+/*dashboard css */
+.dashboard .dash_card {
+    background: #5d78ff;
+    border-radius: 10px;
+    padding: 37px 30px;
+    box-shadow: 0px 2px 4px 1px rgb(151 151 151 / 53%);
+}
+.dashboard .dash_card h5 i {
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    background: #ffffff29;
+    border-radius: 67%;
+    padding: 14px 17px;
+    font-size: 25px;
+}
+.dashboard .cardcol p {
+    margin-left: 20px;
+    color: #fff;
+}
+.dashboard .cardcol h5{
+    color: #fff;
+}
+.dashboard .cardcol p.yest {
+    font-weight: normal;
+    font-size: 11px;
+}
+.dashboard .cardcol h5 {
+    padding-left: 25px;
+}
+.dashboard .shipment {
+    background: #5d78ff;
+    padding: 20px 0px 1px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px 1px rgb(151 151 151 / 53%);
+}
+.dashboard .shipment p span {
+    float: right;
+    color: #fff;
+    padding-right: 30px;
+}
+.dashboard .shipment p {
+    color: #fff;
+}
+.dashboard .shipment ul li span {
+    color: #fff;
+    background: #ffffff29;
+    width: 60px;
+    height: 60px;
+    display: block;
+    border-radius: 77%;
+    line-height: 60px;
+}
+.dashboard .shipment ul li {
+    color: #fff;
+    padding-right: 47px;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    list-style: none;
+}
+.dashboard .dash_card.ndr h5 i {
+    color: #000;
+    padding-top: 17px;
+}
+.dash_card.ndr .cardcol p {
+    color: #000;
+}
+.dash_card.ndr .cardcol h5 {
+    color: #000;
+}
+.dashboard .shipment.ndr p {
+    color: #000;
+}
+.dashboard .shipment.ndr p span{
+    color: #000;
+}
+.dashboard .shipment.ndr ul li {
+    color: #000;    padding-right: 125px;
+}
+.dashboard .shipment.ndr ul li span {
+    color: #000;
+    background: #d5d5d5;
+    margin: 0 auto;
+}
+.dashboard .dash_card.cod h5 i {
+    color: #000;
+    background: #d5d5d5;
+}
+.dashboard .dash_card.cod .cardcol p {
+    color: #000;
+}
+.dashboard .dash_card.cod .cardcol p.cost {
+    color: #5d78ff !important;
+    font-size: 20px;
+}
+.dashboard .dash_card.cod {
+    padding: 47px 30px;
+}
+.dashboard .shipment.cod p {
+    color: #000;
+}
+.dashboard .shipment.cod ul li span{
+    color: #000;
+    background: #d5d5d5;
+}
+.dashboard .shipment.cod ul li{color: #000;    padding-right: 136px;}
+.map_zone .zone p {
+    color: #000;
+    font-size: 15px;
+}
+.map_zone .zone ul li {
+    list-style: none;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 10px;
+}
+.map_zone .zone {
+    background: #fff;
+    box-shadow: 0px 2px 4px 1px rgb(151 151 151 / 53%);
+    padding: 20px 20px 0;
+    border-radius: 10px;
+}
+.map_zone .zone ul li p span.grey {
+    background: white;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    border: 6px solid #c0bfbf;
+    border-radius: 72%;
+    float: left;
+    margin-right: 15px;
+}
+.map_zone .zone ul li p span.green{
+    background: white;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    border: 6px solid #05a605;
+    border-radius: 72%;
+    float: left;
+    margin-right: 15px;
+}
+.map_zone .zone ul li p span.yellow{
+    background: white;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    border: 6px solid yellow;
+    border-radius: 72%;
+    float: left;
+    margin-right: 15px;
+}
+.map_zone .zone ul li p span.red{
+    background: white;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    border: 6px solid red;
+    border-radius: 72%;
+    float: left;
+    margin-right: 15px;
+}
+.map_zone .zone ul li p span.blue{
+    background: white;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    border: 6px solid blueviolet;
+    border-radius: 72%;
+    float: left;
+    margin-right: 15px;
+}
+
+.map_zone .zone p span {
+    float: right;
+}
+.map_zone .zone ul li:last-child {
+    border-bottom: none;
+}
+.table_zone {
+    box-shadow: 0px 2px 4px 1px rgb(151 151 151 / 53%);
+    padding: 20px;
+    border-radius: 10px;
+}
+.table_zone p {
+    color: #000;
+}
+.table_zone table thead tr th {
+    font-size: 13px;
+    color: #000 !important;
+    vertical-align: top;
+}
+.table_zone table tbody tr td {
+    font-size: 11px;
+}
+.dashboard ul#myTab li.nav-item{
+    background: #d5d5d5;
+    color: #000;
+}
+.dashboard ul#myTab li.nav-item a{ 
+    color: #000;    font-weight: 500;
+}
+.dashboard .carousel-inner img {
+    height: 100px;
+    object-fit: cover;
+}
+.dashboard .carousel-indicators {
+    bottom: -40px;
+/* background-color: red; */
+}
+.dashboard .carousel-indicators li {
+    width: 5px;
+    height: 5px;
+    border-radius: 90%;
+    border: 2px solid #000;
+    background-color: #000000;
+}
+
+/*Label generation css */
+.label-generate h2 {
+    font-size: 30px;
+}
+.label-generate h5 {
+    font-size: 18px;
+}
+.label-generate .border {
+    border-radius: 10px;
+    padding: 15px 15px 0;
+}
+.label-generate .border h6 {
+    font-weight: 600;
+    font-size: 15px;
+}
+.label-generate h5.title {
+    margin-bottom: 0px;
+    color: #d40000;
+    font-size: 17px;
+    font-weight: 600;
+}
+.label-generate .border .price p {
+    color: #d40000;
+    font-weight: bold;
+}
+.label-generate .border img {
+    width: 100%;
+}
+.label-generate .border img {
+    width: 100%;
+}
+.label-generate .border h6.heading {
+    font-size: 12px;
+}
+.label-generate .border form small.cm {
+    position: absolute;
+    top: 50px;
+    left: 160px;
+}
+.label-generate .border form small.g {
+    position: absolute;
+    top: 18px;
+    left: 120px;
+}
+.label-generate .border.bg {
+    background: #e4e4e4;    padding-bottom: 10px;
+}
+.label-generate .border.bg .price p {
+    color: #000;    font-weight: normal;margin-bottom: 0px;
+}
+.label-generate button {
+    margin: 0 auto;
+    display: block;
+}
+.label-generate p {
+    color: #626262;
+}
+
+
+/* order details css*/
+.order-details h3 span.id {
+    font-size: 14px;
+}
+.order-details h3 small {
+    color: #fff;
+    background: #888888;
+    font-size: 10px;
+    padding: 5px;
+    margin-right: 10px;
+}
+.order-details span.seller em {
+    font-style: inherit;
+    color: #e5e5e5;
+    font-size: 20px;
+}
+.order-details span.seller{
+font-size: 15px;}
+.order-details .details-btn button.bg-white {
+    color: #000;
+    box-shadow: 0px 2px 4px 1px rgb(196 195 195 / 20%);
+    font-size: 13px;
+    border-radius: 8px;
+}
+.order-details .details-btn button.back{
+    box-shadow: 0px 2px 4px 1px rgb(196 195 195 / 20%);
+    font-size: 13px;
+    margin-right: 200px;
+    border-radius: 16px;
+}
+.order-details .summary {
+    border-radius: 10px;
+    padding: 20px;
+}
+.order-details .summary ul li {
+    list-style: none;
+    font-size: 13px;
+    color: #5f5f5f;
+    padding-bottom: 10px;
+}
+.order-details .summary ul li.date {
+    color: #c70000 !important;
+    font-weight: 600;  
+}
+.order-details .summary ul.bold li {
+    color: #000;
+    font-weight: 500;
+}
+.order-details .ship {
+    border-radius: 10px;
+    padding: 20px;
+}
+.order-details .ship p{ font-size: 13px;
+    color: #5f5f5f}
+.order-details .rightnav p span {
+     float: right;
+}
+.order-details .rightnav p {
+    color: #5f5f5f;
+    font-weight: 500;
+}
+.order-details .rightnav hr {
+    border-top: 1px solid #dddddd;
+    padding: 5px;
+    border-bottom: 1px solid #dddddd;
+    background: #f3f3f3;    margin-top: 0px;
+}
+.order-details .rightnav textarea {
+    border-color: #b5b5b5;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 10px;
+    display: block;
+}
+.order-details .content table.table.custab tbody tr td img{
+    width: 100%;
+}
+.order-details .content table.table.custab thead tr th{
+    color: #5f5f5f !important;    font-weight: 500;
+}
+.order-details .content table.table.custab tbody tr td {
+    font-size: 12px;
+}
+.order-details .content table.table.custab thead {
+    background: #e0e0e0;
+}
+.order-details .content table.table.custab tbody tr td span {
+    background: #f8b50b;
+    color: #fff;
+    padding: 5px;
+    font-size: 10px;
+}
+.order-details .content table.table.custab tbody {
+    border-bottom: 1px solid #e0e0e0;
+}
+.order-details .content h6{
+width: 100%;
+background: #ebebeb;
+padding: 20px;
+border-radius: 5px;}
+.order-details .content h6 span.bg {
+    background: #fff;
+    padding: 7px;
+    font-size: 11px;
+    border-radius: 5px;
+    border: 1px solid #cbcbcb;
+}
+.order-details .package h6 span {
+    font-size: 14px;
+}
+.package .d-flex{    padding: 10px 50px;}
+.order-details .package .package1{width: 50%;   }
+.order-details .package .package1 p{ color: #5f5f5f;}
+.order-details .package h6 {
+    border-radius: unset !important;
+}
+.order-details .package { border-top-left-radius: 5px;    border-top-right-radius: 5px;}
+.order-details .package p.title {
+    color: #5f5f5f;
+    padding: 10px 20px 0;
+    margin-bottom: 0px;
+}
+#content h2 {
+    font-size: 20px;
+}
+/*all products css */
+.allpdt .head a.add {
+    background: #000;
+    border-color: #000;
+    font-size: 15px;
+    padding: 10px 20px;
+    border-radius: 0px;
+}
+.allpdt .head button.srch {
+    background: #000;
+    padding: 11px 16px;
+    border: 1px solid;
+    color: #fff;
+    font-size: 15px;
+    /* margin-top: 9px; */
+    position: relative;
+    left: -13px;
+}
+.allpdt .head input[type="text"] {
+    padding: 10px 5px;    width: 225px;
+}
+.allpdt .head {
+    padding: 10px;
+    background: #ebebeb;
+}
+.allpdt .head h3 {
+    font-size: 20px;
+    padding-top: 15px;
+}
+.allpdt .headdown {
+    background: #f4f4f4;
+    border-bottom: 2px solid #d4d4d4;
+    border-top: 2px solid #d4d4d4;
+    padding: 10px;
+}
+.allpdt .headdown h6{
+border: 1px solid #d4d4d4;
+padding: 10px 30px 10px 20px;}
+.allpdt .headdown h6 span {
+    font-size: 12px;
+    color: #5f5f5f;
+}
+.allpdt .headdown h6.active {
+    border-color: #007bff !important;
+    color: #007bff;
+}
+.allpdt .headdown h6.active span{
+    color: #007bff;
+}
+.allpdt .headbtm button {
+    padding: 7px 20px;
+    border: 1px solid #d4d4d4;
+    border-radius: 19px;
+    background: #fff;    margin: 0 10px;
+}
+.allpdt .headbtm button.active {
+    background: #0dbcb736;
+}
+.allpdt .tabletop .dropdown button {
+    font-size: 13px;
+}
+.allpdt .list-table thead tr th {
+    color: #5f5f5f !important;
+    font-weight: 500;
+}
+.allpdt .list-table td i.fa.fa-mobile {
+    font-size: 35px;
+    color: #007bff;
+}
+.allpdt .list-table td i.fa.fa-desktop{
+    font-size: 27px;
+    color: #007bff;
+}
+.allpdt .filterbtn button {
+    font-size: 12px;
+    font-weight: 500;
+}
+.allpdt .filterbtn {
+    background: #ebebeb;
+    padding: 10px;
+    border: 1px solid #d4d4d4;
+}
+.list-table table thead {
+    background: #ebebeb;
+    border-left: 1px solid #d4d4d4;
+    border-right: 1px solid #d4d4d4;
+}
+.allpdt .list-table .table tr td .dropbtn {
+  color: #000;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  background-color: #fff;
+}
+.allpdt .list-table .table tr td .dropdown {
+  position: relative;
+  display: inline-block;
+}
+.allpdt .list-table .table tr td .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+    z-index: 1;
+    left: -92px;
+    top: 23px;
+}
+.allpdt .list-table .table tr td .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.allpdt .list-table .table tr td .dropdown-content a:hover {background-color: #ddd;}
+.allpdt .list-table .table tr td .dropdown:hover .dropdown-content {display: block;}
+.allpdt .list-table .table tr td .dropdown:hover .dropbtn {background-color: unset;}
