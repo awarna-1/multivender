@@ -7,13 +7,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class StaffController extends Controller
 {
     public function index()
     {
-        $data = Admin::where('role','!=','Admin')->paginate(12);
+        $data = Admin::paginate(12);
         return view('admin.oprations.staff', ['members' => $data]);
     }
 
@@ -30,13 +32,17 @@ class StaffController extends Controller
         ]);
 
         $data = new admin;
-
+        $parent_id = 0;
+        if($request->role == 'Executive'){
+            $parent_id = Auth::guard('admin')->user()->id;
+        }
         $data->name = $request->input('name');
         $data->email = $request->input('email');
         $data->phone = $request->input('phone');
         $password = $request->input('password');
         $data->password = Hash::make($password);
         $data->role = $request->input('role');
+        $data->parent_id = $parent_id;
 
         $done = $data->save();
 
@@ -91,13 +97,11 @@ class StaffController extends Controller
 
     public function update(Request $request)
     {
-
-        $errors = $request->validate([
-            'name' => 'required',
-            'phone' => 'required|min:11|numeric',
-            'password' => 'required|min:8',
-            'role' => 'required',
-        ]);
+        $parent_id = 0;
+        if($request->role == 'Executive'){
+            $parent_id = Auth::guard('admin')->user()->id;
+        }
+    
         $admin_data = admin::where('id' , $request->id);
         $data =[];
         $data['name'] = $request->name;
@@ -106,10 +110,13 @@ class StaffController extends Controller
         $password = $request->password;
         $data['password'] = Hash::make($password);
         $data['role'] = $request->role;
+        $data['parent_id']= $parent_id;
         $com = $admin_data->update($data);
+
+
         $checkbank = DB::table('bank_detials')->where('user_id' ,$request->id)->count();
-         if($checkbank == 1){
-               $bank_details = DB::table('bank_detials')->where('user_id' ,$request->id);
+        $bank_details = DB::table('bank_detials')->where('user_id' ,$request->id);
+         if($checkbank == 1 && $request->acc_num != null){
                $bank_data = [
                'user_id' => $request->id,
                'account_holder' => $request->acc_hol,
@@ -118,17 +125,17 @@ class StaffController extends Controller
                'ifsc'      => $request->ifc_code
         ];
         $bank_details->update($bank_data);
-    }else{
-        $data = new admin;
-
-        $data->name = $request->input('name');
-        $data->email = $request->input('email');
-        $data->phone = $request->input('phone');
-        $password = $request->input('password');
-        $data->password = Hash::make($password);
-        $data->role = $request->input('role');
-
-        $done = $data->save();
+    }
+    if($checkbank == 0 && $request->acc_num != null){
+        $bank_details = DB::table('bank_detials');
+        $bank_data = [
+            'user_id' => $request->id,
+            'account_holder' => $request->acc_hol,
+            'account_number' => $request->acc_num,
+            'bank_name'     => $request->bank_name,
+            'ifsc'      => $request->ifc_code
+        ];
+        $bank_details->insert($bank_data);
     }
         
 

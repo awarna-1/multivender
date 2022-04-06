@@ -28,10 +28,11 @@ class commanController extends Controller
      */
 
 
-     public function update_active($admin_id , $status){
+    public function update_active($admin_id, $status)
+    {
 
-         $admin = Admin::where('id' , $admin_id)->update(['status'=> $status]);
-     }
+        $admin = Admin::where('id', $admin_id)->update(['status' => $status]);
+    }
     public function add_address(Request $request)
     {
 
@@ -381,7 +382,14 @@ class commanController extends Controller
         $role = Auth::guard('admin')->user()->role;
         $seller_id = Auth::guard('admin')->user()->id;
 
-        if ($role == 'Seller' || $role == 'seller') {
+        if ($role == 'Executive') {
+            $seller_id_data = Admin::where('id', $seller_id)->get();
+            $seller_id = $seller_id_data[0]['parent_id'];
+        }
+
+        if ($seller_id == '0') $seller_id = null;
+
+        if ($role == 'Seller' || $role == 'seller' || $role == 'Executive' || $role == 'executive') {
             $data['total_product'] = Product::where('seller_id', $seller_id)->count();
             $data['published_product'] = Product::where('seller_id', $seller_id)->where('status', 'published')->count();
             $data['unpublished_product'] = Product::where('seller_id', $seller_id)->where('status', 'unpublished')->count();

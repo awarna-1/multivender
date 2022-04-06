@@ -1,6 +1,10 @@
 <!--  BEGIN SIDEBAR  -->
 <div class="sidebar-wrapper sidebar-theme">
     <nav id="sidebar">
+    <?php use Illuminate\Support\Facades\Auth;
+ $role= Auth::guard('admin')->user()->role;;
+ ?>
+
         <ul class="list-unstyled menu-categories ps ps--active-y" id="accordionExample">
 
             <li class="menu">
@@ -17,6 +21,7 @@
                 </a>
             </li>
 
+            @if($role == 'Admin')  
             <li class="menu">
                 <a href="#users" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
@@ -46,7 +51,7 @@
                 </ul>
             </li>
 
-
+@endif
 
 
             <li class="menu">
@@ -99,12 +104,16 @@
                     </div>
                 </a>
                 <ul class="submenu list-unstyled collapse" id="pages" data-parent="#accordionExample" style="">
-                    <li>
+                <li>
                         <a href="{{asset('admin/all_orders')}}">All Order</a>
                     </li>
+                   @if($role == 'Admin')   
+
                     <li>
                         <a href="{{asset('admin/new_order')}}">Create Order</a>
                     </li>
+                    @endif
+
                 </ul>
             </li>
 

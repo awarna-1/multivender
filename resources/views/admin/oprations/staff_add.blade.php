@@ -56,15 +56,20 @@
                     </div>
                 </div> -->
 
-               
+                                <?php use Illuminate\Support\Facades\Auth;
+                $role= Auth::guard('admin')->user()->role;;
+                ?>
+
 
                 <div class="form-group row">
                     <label for="membership" class="col-sm-2 col-form-label">Role</label>
                     <div class="col-sm-10">
                     <select class="form-control" id="sel1" name="role">
                                    <option value="none" selected disabled hidden>Select your Role</option>
+                                  @if($role == 'Admin')
                                    <option value="Admin">Admin</option>
                                    <option value="Seller">Seller</option>
+                                   @endif
                                    <option value="Executive">Executive</option>                             
                      </select>
                     </div>

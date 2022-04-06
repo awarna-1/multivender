@@ -52,14 +52,18 @@
                 </div>
                
 
-
                 <div class="form-group row">
                     <label for="membership" class="col-sm-2 col-form-label">Role</label>
                     <div class="col-sm-10">
-                    
-                        <input type="text" class="form-control" id="Membership" name="role" placeholder="Role" value="{{$data['role']}}">
+                    <select class="form-control" id="sel1" name="role">
+                                   <option value="{{$data['role']}}" selected >{{$data['role']}}</option>
+                                   <option value="Admin">Admin</option>
+                                   <option value="Seller">Seller</option>
+                                   <option value="Executive">Executive</option>                             
+                     </select>
                     </div>
                 </div>
+
 
 
 
