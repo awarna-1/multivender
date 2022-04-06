@@ -10,12 +10,18 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 
-
 class StaffController extends Controller
 {
     public function index()
     {
-        $data = Admin::paginate(12);
+        $role= Auth::guard('admin')->user()->role;
+        $id= Auth::guard('admin')->user()->id;
+        if($role == 'Admin'){
+            $data = Admin::paginate(12);
+        }
+        if($role == 'Seller'){
+            $data = Admin::where('parent_id' , $id)->where('role' , 'Executive')->paginate(12);
+        }
         return view('admin.oprations.staff', ['members' => $data]);
     }
 
