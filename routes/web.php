@@ -11,10 +11,12 @@ use App\Http\Controllers\Admin\AttvalController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\commanController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\Live_searchController;
 use App\Http\Controllers\WishlistController;
+use App\Models\Admin;
 use App\Models\Brand;
 use App\Models\Product;
 use App\Models\Category;
@@ -22,6 +24,7 @@ use App\Models\Image_table;
 use App\Models\Variations;
 use App\Models\Color;
 use App\Models\User;
+use GuzzleHttp\Promise\Create;
 use Modules\Blog\Http\Controllers\BlogController;
 
 use Modules\BuyNow\Http\Controllers\BuyNowController;
@@ -141,6 +144,8 @@ Route::post('admin/order_by_date_ajax', [commanController::class, 'order_by_date
 Route::get('admin/user_data_ajax/{uid}', [commanController::class, 'user_data_ajax']);
 Route::get('admin/varient_data_ajax/{pid}', [commanController::class, 'auto_fill_varient']);
 Route::post('admin/add_address', [commanController::class, 'add_address']);
+Route::get('admin/update_active/{admin_id}/{status}', [commanController::class, 'update_active']);
+
 
 
 
@@ -210,15 +215,14 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
         //Staff routes
         Route::get('staff', 'StaffController@index')->name('staff');
-        Route::get('staff_add', function () {
-            return view('admin.oprations.staffUpdate');
-        });
-
-
+          Route::get('staff_add', function () {
+            return view('admin.oprations.staff_add');
+        });    
+        Route::post('staff/new' , [StaffController::class, 'create']);
         Route::post('staff', 'StaffController@create')->name('StaffCreate');
-        Route::get('staffDelete/{id?}', 'StaffController@del')->name('StaffDelete');
-        Route::get('staffEdit/{id?}', 'StaffController@edit')->name('StaffDelete');
-        Route::post('/staffupdate', 'StaffController@update')->name('StaffUpdate');
+        Route::get('staff/edit/{id}' , [StaffController::class, 'edit']);
+        Route::get('staff/Delete/{id?}', 'StaffController@del')->name('StaffDelete');
+        Route::post('/staff/update', 'StaffController@update')->name('StaffUpdate');
 
         //Attribute routes
 

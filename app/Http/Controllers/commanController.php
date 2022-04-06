@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Address;
+use App\Models\Admin;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 use App\Models\Product;
@@ -27,6 +28,11 @@ class commanController extends Controller
      */
 
 
+    public function update_active($admin_id, $status)
+    {
+
+        $admin = Admin::where('id', $admin_id)->update(['status' => $status]);
+    }
     public function add_address(Request $request)
     {
 
@@ -50,7 +56,12 @@ class commanController extends Controller
     public function order_create(Request $request)
     {
         $order = new Order();
-        $varient = DB::table('variations')->where('id' , $request->varient)->get();
+        if ($request->varient > 0) {
+            $varient = DB::table('variations')->where('id', $request->varient)->get();
+            $request->varient = null;
+        } else {
+            $varient = Product::where('id', $request->product_id)->get();
+        }
         $order_dateail = [
             'order_id'  => 'order__adminOrder',
             'user_id'   => $request->user,
@@ -63,34 +74,51 @@ class commanController extends Controller
         $order->insert($order_dateail);
         $id = DB::getPdo()->lastInsertId();
         $order_datail = DB::table('orderdetails');
-        $detail_data = ['order_id' => $id,
-                        'product_id' => $request->product_id ,
-                        'variant_id' => $request->varient ,
-                        'quantity' => $request->quantity ,
-                        'created_at' => $request->date
-    ];
-    $order_datail->insert($detail_data);
+
+        if ($request->varient > 0) {
+            $detail_data = [
+                'order_id' => $id,
+                'product_id' => $request->product_id,
+                'variant_id' => $request->varient,
+                'quantity' => $request->quantity,
+                'created_at' => $request->date
+            ];
+        } else {
+            $detail_data = [
+                'order_id' => $id,
+                'product_id' => $request->product_id,
+                'quantity' => $request->quantity,
+                'created_at' => $request->date
+            ];
+        }
+
+        $order_datail->insert($detail_data);
         return redirect()->back()->with('success', 'Order successfully Added');
     }
 
     public function auto_fill_varient($pid)
     {
         $data = [];
-        $product_qty_data = Product::where('id' , $pid)->get();
-        $product_qty = $product_qty_data[0]->quantity;     
-       $varients = DB::table('variations')->where('product_id', $pid)->get();
+        $product_qty_data = Product::where('id', $pid)->get();
+        $product_qty = $product_qty_data[0]->quantity;
+        $varients = DB::table('variations')->where('product_id', $pid)->get();
         $result = '<label for="varients">varients</label>
         <select  placeholder="Select varient"  name="varient" class="form-control">';
-        foreach ($varients as $varient) {
-            $result = $result . '<option selected value="' . $varient->id . '">' . $varient->name . '- Rs.' . $varient->price . '</option>';
+        if (isset($varients[0])) {
+            foreach ($varients as $varient) {
+                $result = $result . '<option selected value="' . $varient->id . '">' . $varient->name . '- Rs.' . $varient->price . '</option>';
+            }
+        } else {
+            $result = $result . '<option selected  value ="0">' . $product_qty_data[0]->name . '- Rs.' . $product_qty_data[0]->price . '</option>';
         }
+
         $result = $result . '</select>';
         $data['varient'] = $result;
 
         $quantity = '<label for="quantity">Quantity</label>
         <select  placeholder="Select quantity"  name="quantity" class="form-control">';
-        for($i=1; $i<$product_qty ; $i++) {
-            $quantity = $quantity . '<option  value="' . $i . '">' . $i. '</option>';
+        for ($i = 1; $i < $product_qty; $i++) {
+            $quantity = $quantity . '<option  value="' . $i . '">' . $i . '</option>';
         }
         $quantity = $quantity . '</select>';
         $data['quantity'] = $quantity;
@@ -354,7 +382,14 @@ class commanController extends Controller
         $role = Auth::guard('admin')->user()->role;
         $seller_id = Auth::guard('admin')->user()->id;
 
-        if ($role == 'Seller' || $role == 'seller') {
+        if ($role == 'Executive') {
+            $seller_id_data = Admin::where('id', $seller_id)->get();
+            $seller_id = $seller_id_data[0]['parent_id'];
+        }
+
+        if ($seller_id == '0') $seller_id = null;
+
+        if ($role == 'Seller' || $role == 'seller' || $role == 'Executive' || $role == 'executive') {
             $data['total_product'] = Product::where('seller_id', $seller_id)->count();
             $data['published_product'] = Product::where('seller_id', $seller_id)->where('status', 'published')->count();
             $data['unpublished_product'] = Product::where('seller_id', $seller_id)->where('status', 'unpublished')->count();

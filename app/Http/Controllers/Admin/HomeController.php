@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Category;
@@ -20,7 +21,7 @@ class HomeController extends Controller
     {
         $role= Auth::guard('admin')->user()->role;
         $id= Auth::guard('admin')->user()->id;
-
+// dd($id);
         $data=[];
         $data['canvas_color'] = ['0'=>'canvas-pink' , '1'=>'canvas-green' , '2'=>'canvas-blue' , '3'=>'canvas-yellow' , '4'=>'canvas-yellow' , '5'=>'canvas-orange', '6'=>'canvas-gray' , '7'=>'canvas-megenta' ,'8'=>'canvas-purple', '9'=>'canvas-black',  '10'=>'canvas-cyne'];
         if($role == 'Admin' || $role == 'admin'){
@@ -35,6 +36,19 @@ class HomeController extends Controller
             $seller_id = Auth::guard('admin')->user()->id;
             $data['user_count'] = 1;
             $product_count = Product::where('seller_id' , $id)->pluck('id');
+            $data['order_count'] = DB::table('orderdetails')->whereIn('product_id' , $product_count)->count();  
+            $data['category_count'] = Category::where('seller_id' , $seller_id)->get()->count();
+            $data['brand_count'] = Brand::where('seller_id' , $seller_id)->get()->count();
+            $data['category'] = Category::where('seller_id' , $seller_id)->get();
+            return view('staff.dashboard' , compact('data'));
+        }
+        if($role == 'Executive' || $role == 'Executive'){
+            $admin_id= Auth::guard('admin')->user()->id;
+            $seller_id_data = Admin::where('id' , $admin_id)->get();
+            $seller_id = $seller_id_data[0]['parent_id'];
+            if($seller_id == '0') $seller_id = null;
+            $data['user_count'] = 1;
+            $product_count = Product::where('seller_id' , $seller_id)->pluck('id');
             $data['order_count'] = DB::table('orderdetails')->whereIn('product_id' , $product_count)->count();  
             $data['category_count'] = Category::where('seller_id' , $seller_id)->get()->count();
             $data['brand_count'] = Brand::where('seller_id' , $seller_id)->get()->count();

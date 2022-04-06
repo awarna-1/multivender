@@ -1,288 +1,171 @@
-<?php include('header.php') ?>
+@include('admin.layouts.app')
 
-    <!--  BEGIN MAIN CONTAINER  -->
-    <div class="main-container multivendors" id="container">
+<!--  BEGIN MAIN CONTAINER  -->
+<div class="main-container multivendors" id="container">
 
+    @include('admin.layouts.sidebar')
 
-        <?php include('sidebar_menu.php') ?>
+    <!--  BEGIN CONTENT AREA  -->
+    <div id="content" class="main-content wallet">
 
-        <!--  BEGIN CONTENT AREA  -->
-        <div id="content" class="main-content wallet">
-
-            <div class="row justify-content-between align-items-center mb-10 mt-30">
-                <!-- Page Heading Start-->
-                <div class="col-12 col-lg-auto mb-2 pt-4 ">
-                    <div class="page-heading">
-                        <h6>Staff <span>/ Staff Profile</span></h6>
+        <div class="row justify-content-between align-items-center mb-10 mt-30">
+            <!-- Page Heading Start-->
+            <div class="col-12 col-lg-auto mb-2 pt-4 ">
+                <div class="page-heading">
+                    <h6>Staff <span>/ Staff Profile</span></h6>
+                </div>
+            </div>
+            <!--Page Heading End -->
+        </div>
+        @if ($errors->any())
+                <div class="alert alert-danger">
+                     <ul>
+                       @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                       @endforeach
+                      </ul>
+                </div>
+                @endif
+ 
+        <div class="std-prof tech_profile">
+            <h2 class="pb-3"> Staff Profile</h2>
+            <form action="{{asset('admin/staff/new')}}" method="POST">
+                @csrf
+                <div class="form-group row">
+                    <label for="name" class="col-sm-2 col-form-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                     </div>
                 </div>
-                <!--Page Heading End -->
-            </div>
+                <div class="form-group row">
+                    <label for="phone" class="col-sm-2 col-form-label">Phone No.</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="pone" name="phone" placeholder="Phone">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="email" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="email" name="email" placeholder="user@gmail.com">
+                    </div>
+                </div>
+                <!-- <div class="form-group row">
+                    <label for="Qualification" class="col-sm-2 col-form-label">Qualification</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="qualification" name="qual" placeholder="Qualification">
+                    </div>
+                </div> -->
 
-            <div class="std-prof tech_profile">
-                <h2 class="pb-3"> Staff Profile</h2>
-                <form>
-                    <div class="form-group row">
-                        <label for="name" class="col-sm-2 col-form-label">Name</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="name" placeholder="Name">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="phone" class="col-sm-2 col-form-label">Phone No.</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="pone" placeholder="Phone">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="email" class="col-sm-2 col-form-label">Email</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="email" placeholder="user@gmail.com">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="Qualification" class="col-sm-2 col-form-label">Qualification</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="qualification" placeholder="Qualification">
-                        </div>
-                    </div>
-                    <!-- <div class="form-group row">
-                        <label for="class" class="col-sm-2 col-form-label">Class</label>
-                        <div class="col-sm-10">
-                            <select id='testSelect1' multiple>
-                                <option value='1' selected> 1</option>
-                                <option value='2'> 2</option>
-                                <option value='3' selected> 3</option>
-                                <option value='4'> 4</option>
-                                <option value='5'> 5</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="subject" class="col-sm-2 col-form-label">Subject</label>
-                        <div class="col-sm-10">
-                            <select id='testSelect2' multiple>
-                                <option value='1'>Math</option>
-                                <option value='2' selected>Hindi</option>
-                                <option value='3'>Chemistry</option>
-                                <option value='4'>History</option>
-                                <option value='5' selected>English</option>
-                            </select>
-                        </div>
-                    </div> -->
-                    <div class="form-group row">
-                        <label for="Qualification" class="col-sm-2 col-form-label">Location</label>
-                        <div class="col-sm-10">
-                            <div class="tech_loc">
-                                <div class="dropdown">
-                                    <button onclick="myFunction()" class="dropbtn">Search....</button>
-                                    <div id="myDropdown" class="dropdown-content">
-                                        <input type="text" placeholder="Search.." id="myInput"
-                                            onkeyup="filterFunction()">
-                                        <a href="#about">About</a>
-                                        <a href="#base">Base</a>
-                                        <a href="#blog">Blog</a>
-                                        <a href="#contact">Contact</a>
-                                        <a href="#custom">Custom</a>
-                                        <a href="#support">Support</a>
-                                        <a href="#tools">Tools</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- <div class="form-group row">
-                        <label for="subject" class="col-sm-2 col-form-label">Study Mode</label>
-                        <div class="col-sm-10">
-                            <select id="inputSub" class="form-control">
-                                <option selected>Choose...</option>
-                                <option>On</option>
-                                <option>Offline</option>
-                                <option>Online</option>
-                            </select>
-                        </div>
-                    </div> -->
-                    <div class="form-group row">
-                        <label for="membership" class="col-sm-2 col-form-label">Role</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="Membership" placeholder="Role">
-                        </div>
-                    </div>
+                                <?php use Illuminate\Support\Facades\Auth;
+                $role= Auth::guard('admin')->user()->role;;
+                ?>
 
-                    <!-- <div class="form-group row">
-                        <label for="Curentpw" class="col-sm-2 col-form-label">Current Password</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="Current Password"
-                                placeholder="Current Password">
-                        </div>
-                    </div> -->
+
+                <div class="form-group row">
+                    <label for="membership" class="col-sm-2 col-form-label">Role</label>
+                    <div class="col-sm-10">
+                    <select class="form-control" id="sel1" name="role">
+                                   <option value="none" selected disabled hidden>Select your Role</option>
+                                  @if($role == 'Admin')
+                                   <option value="Admin">Admin</option>
+                                   <option value="Seller">Seller</option>
+                                   @endif
+                                   <option value="Executive">Executive</option>                             
+                     </select>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group row">
+                    <label for="NewPassword" class="col-sm-2 col-form-label">New Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="NewPassword" name="password" placeholder="New Password">
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <label for="Re-EnterPassword" class="col-sm-2 col-form-label">Re-Enter Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="Re-EnterPassword" name="conform_password" placeholder="Re-Enter Password">
+                    </div>
+                </div>
+
+                <div class="form-group" >
+                    <div class="btn-primary" id ="addBank" onclick="add_bank_details(1)" style="width: 100px; float:right; padding:14px; cursor:pointer"> Add Bank </div>
+                </div>
+
+                <div class="bank_del allstd-page" id="bank_detail">
+                    <h3 class="pt-3 pb-2">Account Details</h3>
 
                     <div class="form-group row">
-                        <label for="NewPassword" class="col-sm-2 col-form-label">New Password</label>
+                        <label for="accholder" class="col-sm-2 col-form-label">Account Holder</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="NewPassword" placeholder="New Password">
+                            <input type="text" class="form-control" id="accholder" name="acc_hol" placeholder="Account Holder">
                         </div>
                     </div>
-
-
                     <div class="form-group row">
-                        <label for="Re-EnterPassword" class="col-sm-2 col-form-label">Re-Enter Password</label>
+                        <label for="accnum" class="col-sm-2 col-form-label">Account Number</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="Re-EnterPassword"
-                                placeholder="Re-Enter Password">
+                            <input type="text" class="form-control" id="accnum" name="acc_num" placeholder="Account Number">
                         </div>
                     </div>
-
-
-                    <div class="bank_del allstd-page">
-                        <h3 class="pt-3 pb-2">Account Details</h3>
-                        <form>
-                            <div class="form-group row">
-                                <label for="accholder" class="col-sm-2 col-form-label">Account Holder</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="accholder" placeholder="Account Holder">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="accnum" class="col-sm-2 col-form-label">Account Number</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="accnum" placeholder="Account Number">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="bank" class="col-sm-2 col-form-label">Bank Name</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="bank" placeholder="Bank Name">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="ifsc" class="col-sm-2 col-form-label">IFSC Code</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="Code" placeholder=" IFSC Code">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <button class="s-btn btn-primary" type="submit">Save</button>
-                            </div>
-
-                        </form>
-
-                        <!-- <div id="navbarscroll">
-                            <h3>Lead History</h3>
-                            <table class="table table-striped custab">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Phone No.</th>
-                                        <th>Email Address</th>
-                                        <th>Date</th>
-                                        <th>Subject</th>
-                                        <th>Class</th>
-                                        <th>Status</th>
-                                        <th class="text-center">Study Mode</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>ABC</td>
-                                        <td>012345678</td>
-                                        <td>User@mail.com</td>
-                                        <td>dd/mm/yyyy</td>
-                                        <td>Math</td>
-                                        <td>1</td>
-                                        <td>Distributed</td>
-                                        <td class="text-center">
-                                            <span class="pr-2"><a href="#">Online</a></span>
-                                            <span><a href="#">Offline</a></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>ABC</td>
-                                        <td>012345678</td>
-                                        <td>User@mail.com</td>
-                                        <td>dd/mm/yyyy</td>
-                                        <td>Math</td>
-                                        <td>1</td>
-                                        <td>Distributed</td>
-                                        <td class="text-center">
-                                            <span class="pr-2"><a href="#">Online</a></span>
-                                            <span><a href="#">Offline</a></span>
-                                        </td>
-                                    </tr>
-
-
-                                </tbody>
-                            </table>
+                    <div class="form-group row">
+                        <label for="bank" class="col-sm-2 col-form-label">Bank Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="bank" name="bank_name" placeholder="Bank Name">
                         </div>
-
-                        <div id="navbarscroll">
-                            <h3>Order History</h3>
-                            <table class="table table-striped custab">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Phone No.</th>
-                                        <th>Email Address</th>
-                                        <th>Date</th>
-                                        <th>Subject</th>
-                                        <th>Class</th>
-                                        <th>Amount</th>
-                                        <th>Status</th>
-                                        <th class="text-center">Study Mode</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>ABC</td>
-                                        <td>012345678</td>
-                                        <td>User@mail.com</td>
-                                        <td>dd/mm/yyyy</td>
-                                        <td>Math</td>
-                                        <td>1</td>
-                                        <td>$000</td>
-                                        <td>Distributed</td>
-                                        <td class="text-center">
-                                            <span class="pr-2"><a href="#">Online</a></span>
-                                            <span><a href="#">Offline</a></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>ABC</td>
-                                        <td>012345678</td>
-                                        <td>User@mail.com</td>
-                                        <td>dd/mm/yyyy</td>
-                                        <td>Math</td>
-                                        <td>1</td>
-                                        <td>$000</td>
-                                        <td>Distributed</td>
-                                        <td class="text-center">
-                                            <span class="pr-2"><a href="#">Online</a></span>
-                                            <span><a href="#">Offline</a></span>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div> -->
+                    </div>
+                    <div class="form-group row">
+                        <label for="ifsc" class="col-sm-2 col-form-label">IFSC Code</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="Code" name="ifc_code" placeholder=" IFSC Code">
+                        </div>
+                    </div>
+                </div>
+                    <div class="form-group">
+                        <button class="s-btn btn-primary" type="submit">Save</button>
+                        <div class="btn-primary" id="hide"  onclick="add_bank_details(0)" style="width: 100px; float:right; padding:14px; cursor:pointer"> Hide bank </div>
 
                     </div>
+                    
 
-
-            </div>
+            </form>
 
 
         </div>
-        <!--  END CONTENT AREA  -->
+
 
     </div>
-    <!-- END MAIN CONTAINER -->
 
 
+</div>
+<!--  END CONTENT AREA  -->
 
-<?php include('footer.php') ?>
+</div>
+<!-- END MAIN CONTAINER -->
+
+<script>
+    $("#bank_detail").css("display", "none");
+    $("#hide").css("display", "none");
+
+    function add_bank_details(val) {
+        if (val == 1) {
+            $("#bank_detail").css("display", "block");
+            $("#hide").css("display", "block");
+            $("#addBank").css("display", "none");
+
+            
+        } 
+        if (val == 0) {
+         $("#bank_detail").css("display", "none");
+         $("#hide").css("display", "none");
+         $("#addBank").css("display", "block");
+
+
+        }
+    }
+</script>
+
+@include('admin.layouts.footer')
