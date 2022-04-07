@@ -14,7 +14,6 @@ class BlogController extends Controller
     public function index()
     {
         $data =  Blog::paginate(5);
-
         return view('blog::blog', ['members' => $data]);
     }
 

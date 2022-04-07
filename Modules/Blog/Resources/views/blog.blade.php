@@ -1,7 +1,10 @@
-@extends('blog::layouts.master')
+@include('admin.layouts.app')
 
-@section('content')
-    
+<!--  BEGIN MAIN CONTAINER  -->
+<div class="main-container multivendors" id="container">
+
+    @include('admin.layouts.sidebar')
+
     @if(session('wrong'))
     <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 " role="alert">
 
@@ -56,25 +59,37 @@
                                     <th>
                                         <td>#.</td>
                                         <td>Title.</td>
-                                        <td>Status.</td>
+                                        <td>category</td>
+                                        <td>slug</td>
+                                        <td>short Discrition</td>
+                                        <td>Full Discription</td>
+                                        <td>Meta description</td>
+                                        <td> Meta Keywords </td>
+                                        <td> Banner 1</td>
+                                        <td> Banner 2</td>
                                         <td>Created date</td>
                                         <td>Updated date</td>
                                         <td>Actions.</td>
                                     </th>
                                     
                                 </thead>
-                            
+                            <?php  $i=0;?>
                                     @if(count($members)>0)
                                     
                                     @foreach ($members as $value)
-                                        
-                                        <tr>
+                                        <tr> 
+                                            <td> {{$i++}}</td>
+                                            <td>{{ $value->title }}</td>
+                                            <td>{{ $value->cat_id }}</td>
+                                            <td>{{ $value->short_discription}}</td>
+                                            <td>{{ $value->full_discription}}</td>
+                                            <td>{{ $value->meta_discription }}.</td>
+                                            <td>{{ $value->meta_keywords }}.</td>
 
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $value->blog_name }}</td>
-                                            <td>{{ $value->status }}</td>
-                                            <td>{{ $value->date_created }}.</td>
-                                            <td>{{ $value->date_updated }}.</td>
+                                            <td>{{ $value->banner_1 }}.</td>
+                                            <td>{{ $value->banner_2 }}.</td>
+
+
                                             <td>
                                                 <a style="font-size:21px;font-weight:bold;color:rgb(201 133 9);" href="{{'blogEdit/'.$value['id']}}"><i class="far fa-edit"></i></a>
                                                 <a style="font-size:21px;font-weight:bold;color:red;" href="{{'blogDelete/'.$value['id']}}"><i class=" far fa-trash-alt"></i></a>
@@ -94,5 +109,6 @@
             </div>
         </div>
     </div>
+</div>
     
-    @endsection
+    @include('admin.layouts.footer')

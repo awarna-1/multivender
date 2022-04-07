@@ -19,7 +19,7 @@
 
   <li>
 
-    <a href="{{ route('admin.staff') }}" class="active">
+    <a href="" class="active">
       <i class="fas fa-users"></i>
       <span>Staff</span>
     </a>
