@@ -1,114 +1,110 @@
 @include('admin.layouts.app')
 
-<!--  BEGIN MAIN CONTAINER  -->
 <div class="main-container multivendors" id="container">
 
     @include('admin.layouts.sidebar')
 
-    @if(session('wrong'))
-    <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 " role="alert">
+    <!--  BEGIN CONTENT AREA  -->
+    <div id="content" class="main-content wallet">
 
-        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-            <span class="block sm:inline">{{session('wrong')}}</span>
-        </div>
-
-    </div>
-    @endif
-    @if(session('message'))
-    <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 " role="alert">
-
-        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
-            <span class="block sm:inline">{{session('message')}}</span>
-        </div>
-
-    </div>
-    @endif
-
-
-    @if(count($errors) > 0)
-    @foreach ($errors->all() as $error)
-    <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 " role="alert">
-
-        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-            <span class="block sm:inline">{{$error}}</span>
-        </div>
-
-    </div>
-    @endforeach
-
-    @endif
-
-
-    <div class="grid grid-cols-6 gap-4">
-
-        <div class="col-span-3 gap-4">
-
-            <div class="grid gap-4">
-
-                <div class="py-5">
-
-                    <div class="bg-white overflow-hidden sm:rounded-lg">
-
-
-                        <div class="p-4 bg-white border-b border-gray-200">
-        
-                            <table>
-                            
-                                <thead>
-                                    
-                                    <th>
-                                        <td>#.</td>
-                                        <td>Title.</td>
-                                        <td>category</td>
-                                        <td>slug</td>
-                                        <td>short Discrition</td>
-                                        <td>Full Discription</td>
-                                        <td>Meta description</td>
-                                        <td> Meta Keywords </td>
-                                        <td> Banner 1</td>
-                                        <td> Banner 2</td>
-                                        <td>Created date</td>
-                                        <td>Updated date</td>
-                                        <td>Actions.</td>
-                                    </th>
-                                    
-                                </thead>
-                            <?php  $i=0;?>
-                                    @if(count($members)>0)
-                                    
-                                    @foreach ($members as $value)
-                                        <tr> 
-                                            <td> {{$i++}}</td>
-                                            <td>{{ $value->title }}</td>
-                                            <td>{{ $value->cat_id }}</td>
-                                            <td>{{ $value->short_discription}}</td>
-                                            <td>{{ $value->full_discription}}</td>
-                                            <td>{{ $value->meta_discription }}.</td>
-                                            <td>{{ $value->meta_keywords }}.</td>
-
-                                            <td>{{ $value->banner_1 }}.</td>
-                                            <td>{{ $value->banner_2 }}.</td>
-
-
-                                            <td>
-                                                <a style="font-size:21px;font-weight:bold;color:rgb(201 133 9);" href="{{'blogEdit/'.$value['id']}}"><i class="far fa-edit"></i></a>
-                                                <a style="font-size:21px;font-weight:bold;color:red;" href="{{'blogDelete/'.$value['id']}}"><i class=" far fa-trash-alt"></i></a>
-                                            </td>
-                                        
-                                        </tr>
-                                    @endforeach
-                                    
-                                    @endif
-                                    
-                            </table>
-                        
-                        </div>
-
-                    </div>
+        <div class="row justify-content-between align-items-center mb-10 mt-30">
+            <!-- Page Heading Start-->
+            <div class="col-12 col-lg-auto mb-2 pt-4 ">
+                <div class="page-heading">
+                    <h6>Staff <span>/ All Staff</span></h6>
                 </div>
             </div>
+            <!--Page Heading End -->
         </div>
+
+        <div class="lead_mang allstd-page" id="navbarscroll">
+            <h2>All Staff</h2>
+
+            <table class="table table-striped custab">
+                <thead>
+                    <tr>
+
+                        
+                        <th>#.</th>
+                        <th>Title.</th>
+                        <th>category</th>
+                        <th>slug</th>
+                        <th>short Discrition</th>
+                        <th>Full Discription</th>
+                        <th>Meta description</th>
+                        <th> Meta Keywords </th>
+                        <th> Banner 1</th>
+                        <th> Banner 2</th>
+                        <th>Created date</th>
+                        <th>Status</th>
+
+                        <th>Actions.</th>
+                    
+                    </tr>
+                </thead>
+                <?php $i = 1; ?>
+                @if(count($members)>0)
+
+                @foreach ($members as $value)
+                <tr>
+                    <td> {{$i++}}</td>
+                    <td>{{ $value->title }}</td>
+                    <td>{{ $value->cat_id }}</td>
+                    <td>{{ $value->slug }}</td>
+
+                    <td>{{ $value->short_discription}}</td>
+                    <td>{{ $value->full_discription}}</td>
+                    <td>{{ $value->meta_discription }}.</td>
+                    <td>{{ $value->meta_keywords }}.</td>
+
+                    <td>{{ $value->banner_1 }}.</td>
+                    <td>{{ $value->banner_2 }}.</td>
+                    <td>{{$value->created_at}}</td>
+
+
+                    <td class="text-center">
+                        <label class="switch">
+                        <input type="checkbox" <?php if($value->status == 1) echo "checked"; ?> onclick="active(this.value)" id="active" value="{{$value->id}}">
+                            <span class="slider round"></span>
+                        </label><br>
+                    </td>
+                    <td>
+                    <a href="{{asset('admin/staff/edit/'.$value->id)}}"><button type="button" class="btn btn-success">Edit</button></a>
+                    <a href="{{asset('admin/staff/Delete/'.$value->id)}}"><button type="button" class="btn btn-danger">Delete</button></a>
+
+                    </td>
+
+                </tr>
+                @endforeach
+
+                @endif
+
+            </table>
+
+        </div>
+
+
     </div>
+    <!--  END CONTENT AREA  -->
+
 </div>
-    
-    @include('admin.layouts.footer')
+<!-- END MAIN CONTAINER -->
+<script>
+    function active(admin_id) {
+        var active;
+
+        if ($('#active').is(":checked")) active = '1';
+        else active = '0';
+
+        $.ajax({
+            url: 'update_active/' + admin_id + '/' + active,
+            type: 'get',
+            data: {},
+            success: function(result) {}
+
+        });
+
+    }
+</script>
+
+@include('staff.layouts.footer')
