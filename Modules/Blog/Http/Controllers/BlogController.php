@@ -2,11 +2,13 @@
 
 namespace Modules\Blog\Http\Controllers;
 
+use App\Models\BlogCategory;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Blog\Entities\Blog;
 use phpDocumentor\Reflection\Types\Null_;
+use Illuminate\Support\Facades\File; 
 
 class BlogController extends Controller
 {
@@ -27,17 +29,44 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         $errors = $request->validate([
-            'blog_name' => 'required',
-            'status' => 'required',
-            'body' => 'required',
+            'title' => 'required',
+            'category' => 'required',
+            'slug' => 'required',
+            'short_description' => 'required',
+            'full_description' => 'required',
+            'banner_2' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'banner_1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'meta_description' => 'required',
+            'meta_keyword' => 'required',
+
         ]);
+
+
+
+        if ($request->hasFile('banner_2')) {
+            $image = $request->file('banner_2');
+            $name2 = time() . '.' . $image->getClientOriginalExtension();
+            $image->move('uploads/blog_media', $name2);
+        }
+        if ($request->hasFile('banner_1')) {
+            $image = $request->file('banner_1');
+            $name1 = mt_rand(1, 100000) . time() . '.' . $image->getClientOriginalExtension();
+            $image->move('uploads/blog_media', $name1);
+        }
 
         $data = new Blog;
 
-        $data->blog_name = $request->blog_name;
-        $data->body = $request->body;
-        $data->status = $request->status;
-        $data->date_created = date('Y-m-d');
+        $data->title = $request->title;
+        $data->cat_id = $request->category;
+        $data->banner_1 = $name1;
+        $data->banner_2 = $name2;
+
+        $data->short_discription = $request->short_description;
+        $data->slug = $request->slug;
+        $data->full_discription = $request->full_description;
+        $data->meta_discription = $request->meta_description;
+        $data->meta_keywords = $request->meta_keywords;
+        $data->created_at = date('Y-m-d');
 
 
         $done = $data->save();
@@ -59,29 +88,55 @@ class BlogController extends Controller
     public function edit($id)
     {
         $value = Blog::find($id);
-        return view('blog::update-blog', ['value' => $value]);
+        $blogCategory = BlogCategory::get();
+        $category = BlogCategory::where('id', $blogCategory[0]->id)->get();
+        return view('blog::update-blog', ['value' => $value, 'categories' => $blogCategory, 'category' => $category[0]->name]);
     }
 
 
     public function update(Request $request)
     {
-        $errors = $request->validate([
-            'blog_name' => 'required',
-            'status' => 'required',
-            'body' => 'required',
-        ]);
 
         $data = Blog::find($request->id);
+        $allblogs=Blog::where('id' , $request->id)->get();
 
-        $data->blog_name = $request->blog_name;
-        $data->body = $request->body;
-        $data->status = $request->status;
-        $data->date_updated = date('Y-m-d');
+        if ($request->hasFile('banner_2')) {
+            $image = $request->file('banner_2');
+            $name2 = time() . '.' . $image->getClientOriginalExtension();
+            $image->move('uploads/blog_media', $name2);
+            $data->banner_2 = $name2;
+            $image_path = public_path("uploads/blog_media/{$allblogs[0]->banner_2}");
+            if (File::exists($image_path)) {
+                unlink($image_path);
+            }
+        }
+        if ($request->hasFile('banner_1')) {
+            $image = $request->file('banner_1');
+            $name1 = mt_rand(1, 100000) . time() . '.' . $image->getClientOriginalExtension();
+            $image->move('uploads/blog_media', $name1);
+            $data->banner_1 = $name1;
+            $image_path = public_path("uploads/blog_media/{$allblogs[0]->banner_1}");
+            if (File::exists($image_path)) {
+                unlink($image_path);
+            }
+            //unlink old image
+        }
+
+        $data->title = $request->title;
+        $data->cat_id = $request->category;
+
+        $data->short_discription = $request->short_description;
+        $data->slug = $request->slug;
+        $data->full_discription = $request->full_description;
+        $data->meta_discription = $request->meta_description;
+        $data->meta_keywords = $request->meta_keywords;
+        $data->created_at = date('Y-m-d');
 
 
-        $com = $data->save();
+        $done = $data->update();
 
-        if ($com) {
+
+        if ($done) {
             return redirect('/admin/blog')->with('message', 'Blog updated succesfully');
         } else {
             return redirect()->back()->with('wrong', 'something went wrong or Blog not updated');

@@ -145,6 +145,8 @@ Route::get('admin/user_data_ajax/{uid}', [commanController::class, 'user_data_aj
 Route::get('admin/varient_data_ajax/{pid}', [commanController::class, 'auto_fill_varient']);
 Route::post('admin/add_address', [commanController::class, 'add_address']);
 Route::get('admin/update_active/{admin_id}/{status}', [commanController::class, 'update_active']);
+Route::get('admin/blog_update_active/{blog_id}/{status}', [commanController::class, 'update_active']);
+
 
 
 

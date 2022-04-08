@@ -11,14 +11,18 @@
             <!-- Page Heading Start-->
             <div class="col-12 col-lg-auto mb-2 pt-4 ">
                 <div class="page-heading">
-                    <h6>Staff <span>/ All Staff</span></h6>
+                    <h6>Blog <span>/ All blog</span></h6>
+                    
                 </div>
             </div>
+             <div class="textbtn">
+             <a href="{{asset('admin/create_blog')}}"> <input type="submit" value="Add New Post"></a>
+                </div>
             <!--Page Heading End -->
         </div>
 
         <div class="lead_mang allstd-page" id="navbarscroll">
-            <h2>All Staff</h2>
+            <h2>All blog</h2>
 
             <table class="table table-striped custab">
                 <thead>
@@ -56,9 +60,8 @@
                     <td>{{ $value->full_discription}}</td>
                     <td>{{ $value->meta_discription }}.</td>
                     <td>{{ $value->meta_keywords }}.</td>
-
-                    <td>{{ $value->banner_1 }}.</td>
-                    <td>{{ $value->banner_2 }}.</td>
+                    <td> <img src="{{asset('uploads/blog_media/'.$value->banner_1)}}" alt="iamge" style="width:90px; height:70px;"></td>
+                    <td> <img src="{{asset('uploads/blog_media/'.$value->banner_2)}}" alt="iamge" style="width:90px; height:70px;"></td>
                     <td>{{$value->created_at}}</td>
 
 
@@ -69,8 +72,8 @@
                         </label><br>
                     </td>
                     <td>
-                    <a href="{{asset('admin/staff/edit/'.$value->id)}}"><button type="button" class="btn btn-success">Edit</button></a>
-                    <a href="{{asset('admin/staff/Delete/'.$value->id)}}"><button type="button" class="btn btn-danger">Delete</button></a>
+                    <a href="{{asset('admin/blogEdit/'.$value->id)}}"><button type="button" class="btn btn-success">Edit</button></a>
+                    <a href="{{asset('admin/blogDelete/'.$value->id)}}"><button type="button" class="btn btn-danger">Delete</button></a>
 
                     </td>
 
@@ -90,17 +93,19 @@
 </div>
 <!-- END MAIN CONTAINER -->
 <script>
-    function active(admin_id) {
+    function active(blog_id) {
         var active;
 
         if ($('#active').is(":checked")) active = '1';
         else active = '0';
 
         $.ajax({
-            url: 'update_active/' + admin_id + '/' + active,
+            url: 'blog_update_active/' + blog_id + '/' + active,
             type: 'get',
             data: {},
-            success: function(result) {}
+            success: function(result) {
+
+            }
 
         });
 

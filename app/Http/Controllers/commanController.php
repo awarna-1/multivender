@@ -16,6 +16,7 @@ use Illuminate\Database\Schema\ForeignKeyDefinition;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Modules\Blog\Entities\Blog;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Stmt\Foreach_;
 
@@ -31,7 +32,12 @@ class commanController extends Controller
     public function update_active($admin_id, $status)
     {
 
-        $admin = Admin::where('id', $admin_id)->update(['status' => $status]);
+        $admin = Blog::where('id', $admin_id)->update(['status' => $status]);
+    }
+    public function blog_update_active($blog_id, $status)
+    {
+
+        $admin = Admin::where('id', $blog_id)->update(['status' => $status]);
     }
     public function add_address(Request $request)
     {
