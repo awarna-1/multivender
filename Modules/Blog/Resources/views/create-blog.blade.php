@@ -122,7 +122,6 @@
 
                             <div class="form-group">
                                 <input type="submit" value="Save">
-                            </div>
 
                     </div>
 
@@ -134,9 +133,8 @@
 
 
 
-    </div>
-    <!-- END MAIN CONTAINER -->
+    </div >
+     <!-- END MAIN CONTAINER -->
 
-
-
+            
     @include('admin.layouts.footer')

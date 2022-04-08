@@ -15,7 +15,7 @@ class BlogController extends Controller
 
     public function index()
     {
-        $data =  Blog::paginate(5);
+        $data =  Blog::paginate(10);
         return view('blog::blog', ['members' => $data]);
     }
 
@@ -37,7 +37,7 @@ class BlogController extends Controller
             'banner_2' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'banner_1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'meta_description' => 'required',
-            'meta_keyword' => 'required',
+            'meta_keywords' => 'required',
 
         ]);
 

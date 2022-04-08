@@ -61,6 +61,12 @@
                                 <input name="main_id" value="" type="text" class="form-control" placeholder="main_id">
                             </div>
                         </div>
+                        <div class="form-group row mb-3">
+                            <label for="title" class="col-sm-3 col-form-label">commission<span>*</span></label>
+                            <div class="col-sm-9">
+                                <input name="commission" value="" type="text" class="form-control" placeholder="commission % ">
+                            </div>
+                        </div>
 
                         <div class="form-group row mb-3">
                             <label for="slug" class="col-sm-3 col-form-label">Status</label>

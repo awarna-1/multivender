@@ -157,6 +157,7 @@ class ProductController extends Controller
         $data->description = $request->description;
         $data->quantity = $request->quantity;
         $data->seller_id = $seller_id;
+        $data->gst = $request->gst;
 
        
         $brand_id = $request->brand_id;
@@ -386,6 +387,8 @@ class ProductController extends Controller
         $data->price = $request->unit_price;
         $data->description = $request->description;
         $data->quantity = $request->quantity;
+        $data->gst = $request->gst;
+
 
 
 //$data->status = $request->get_status;

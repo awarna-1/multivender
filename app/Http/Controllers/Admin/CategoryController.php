@@ -44,6 +44,7 @@ class CategoryController extends Controller
         $data->main_id = $request->input('main_id');
         $data->status = $request->input('status');
         $data->seller_id = $seller_id;
+        $data->commission = $request->commission;
 
 
         $done = $data->save();
@@ -84,6 +85,7 @@ class CategoryController extends Controller
         $data->name = $request->name;
         $data->main_id = $request->main_id;
         $data->status = $request->status;
+        $data->commission = $request->commission;
 
 
         $com = $data->save();

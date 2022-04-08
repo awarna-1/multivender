@@ -26,7 +26,7 @@ use App\Models\Color;
 use App\Models\User;
 use GuzzleHttp\Promise\Create;
 use Modules\Blog\Http\Controllers\BlogController;
-
+use App\Http\Controllers\BlogCategoryController;
 use Modules\BuyNow\Http\Controllers\BuyNowController;
 use Modules\Payment\Http\Controllers\PaymentController;
 use Modules\Order\Http\Controllers\OrderController;
@@ -243,9 +243,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('gallery_store', [GalleryController::class, 'store'])->name('gallerystore');
         Route::get('gallerydelete/{id?}', [GalleryController::class, 'del'])->name('gallerydelete');
 
-
         //categories routes
-
         Route::get('/category', [CategoryController::class, 'index'])->name('category');
         Route::get('/category_new', [CategoryController::class, 'create'])->name('category_new');
         Route::post('/category_new', [CategoryController::class, 'store'])->name('catgory_store');
@@ -332,7 +330,15 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('blogDelete/{id}', [BlogController::class, 'destroy']);
         Route::get('blogEdit/{id}', [BlogController::class, 'edit']);
         Route::post('blogUpdate', [BlogController::class, 'update'])->name('update_blog');
-    });
+
+        // blog category route
+        Route::get('blog_category', [BlogCategoryController::class, 'index'])->name('blog_category');
+        Route::get('new_category', [BlogCategoryController::class, 'upload'])->name('new_category');
+        Route::post('add_category', [BlogCategoryController::class, 'create']);
+        Route::get('Blog/edit/{id}', [BlogCategoryController::class, 'edit']);
+        Route::get('Blog/Delete/{id}', [BlogCategoryController::class, 'del']);
+        Route::post('blog/update', [BlogCategoryController::class, 'update'])->name('update_blogCategory');
+        });
 
         // wish list routs
 

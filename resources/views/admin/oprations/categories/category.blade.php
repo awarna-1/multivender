@@ -46,6 +46,7 @@
                         <th>Name</th>
                         <th>Status</th>
                         <th>main_id</th>
+                        <th>commission</th>
                         <th>options</th>
                     </thead>
                     <tbody>
@@ -54,6 +55,7 @@
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->status}}</td>
                                 <td>{{$item->main_id}}</td>
+                                <td>{{$item->commission}}</td>
                                 <td>
                                     
                                     <a href="{{asset('/admin/category_edit/'.$item->id)}}"><i title="Edit" class="fa c-icon fa-pencil"></i></a>
@@ -67,6 +69,7 @@
                 </table>
 
                 <p>{{$members->links()}}</p>
+                
 
             </div>
 
