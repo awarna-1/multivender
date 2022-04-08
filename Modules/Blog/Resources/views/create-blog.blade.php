@@ -1,6 +1,8 @@
-@extends('blog::layouts.master')
+@include('admin.layouts.app')
 
-@section('content')
+<div class="main-container multivendors" id="container">
+
+    @include('admin.layouts.sidebar')
     
     @if(session('wrong'))
     <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 " role="alert">
@@ -129,4 +131,5 @@
             
                 
         </script>
-        @endsection
+
+    @include('admin.layouts.footer')

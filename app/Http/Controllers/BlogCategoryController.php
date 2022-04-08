@@ -14,7 +14,12 @@ class BlogCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $data =  BlogCategory::paginate(5);
+        return view('blog::blog_category' , compact('data'));
+    }
+    public function upload()
+    {
+        return view('blog::new_category');
     }
 
     /**
@@ -22,9 +27,11 @@ class BlogCategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        // dd($request);
+        BlogCategory::insert(['name'=>$request->name]);
+        return back();
     }
 
     /**
@@ -33,9 +40,10 @@ class BlogCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function edit(Request $request, $id)
     {
-        //
+        $value = BlogCategory::find($id);
+        return view('blog::update_blogCategory', compact('value'));
     }
 
     /**
@@ -55,10 +63,10 @@ class BlogCategoryController extends Controller
      * @param  \App\Models\BlogCategory  $blogCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(BlogCategory $blogCategory)
-    {
-        //
-    }
+    //  public function edit(BlogCategory $blogCategory)
+    // {
+        
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -67,9 +75,17 @@ class BlogCategoryController extends Controller
      * @param  \App\Models\BlogCategory  $blogCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BlogCategory $blogCategory)
+    public function update(Request $request)
     {
-        //
+        $errors = $request->validate([
+            'name' => 'required',
+        ]);
+        $data =[];
+        $blog = BlogCategory::where('id',$request->id);
+        $data['name'] = $request->name;
+        $com = $blog->update($data);
+return redirect('/admin/blog_category');
+        
     }
 
     /**
@@ -78,8 +94,15 @@ class BlogCategoryController extends Controller
      * @param  \App\Models\BlogCategory  $blogCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BlogCategory $blogCategory)
+    public function del(Request $request,$id)
     {
-        //
+        $id = $request->id;
+        $del = BlogCategory::find($id)->delete();
+        if ($del) {
+
+            return redirect()->back()->with('message', 'Deleted successfully');
+        } else {
+            return redirect()->back()->with('wrong', 'Not Deleted');
+        }
     }
 }
