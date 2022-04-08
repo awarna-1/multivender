@@ -996,7 +996,7 @@ div#content table.table.table-striped.custab textarea {
     float: right;    font-size: 15px;
 }
 .order_details .tab-content .pdt_blog h3.quality {
-    color: #000;    font-size: 20px;
+    color: #000;    font-size: 15px;
 }
 .order_details .tab-content .pdt_blog img {
     width: 67%;
@@ -2424,12 +2424,26 @@ padding: 10px 30px 10px 20px;}
     font-size: 12px;
     color: #5f5f5f;
 }
-.allpdt .headdown h6.active {
+/* .allpdt .headdown h6.active {
     border-color: #007bff !important;
     color: #007bff;
 }
+
 .allpdt .headdown h6.active span{
     color: #007bff;
+} */
+.allpdt .headdown .nav-link.active {
+    background: unset;
+    border: 1px solid #007bff;
+    color: #007bff;
+}
+.allpdt .headdown .nav-link {
+    color: #000;
+    text-align: left;
+    padding: 10px 30px;
+    border: 1px solid #d4d4d4;
+    border-radius: unset;
+    height: 60px;
 }
 .allpdt .headbtm button {
     padding: 7px 20px;
@@ -2471,10 +2485,9 @@ padding: 10px 30px 10px 20px;}
 }
 .allpdt .list-table .table tr td .dropbtn {
   color: #000;
-  padding: 16px;
   font-size: 16px;
   border: none;
-  background-color: #fff;
+  background-color: unset;
 }
 .allpdt .list-table .table tr td .dropdown {
   position: relative;
