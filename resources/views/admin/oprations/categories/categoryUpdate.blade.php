@@ -31,7 +31,7 @@
                 
                 <div class="page-heading">
 
-                    <h6>Category <span>/ New Category</span></h6>
+                    <h6>Category <span>/ Edit Category</span></h6>
 
                 </div>
 
@@ -61,6 +61,13 @@
                             <label for="title" class="col-sm-3 col-form-label">Main_id<span>*</span></label>
                             <div class="col-sm-9">
                                 <input name="main_id" value="{{$data->main_id}}" type="text" class="form-control" placeholder="main_id">
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-3">
+                            <label for="title" class="col-sm-3 col-form-label">commission<span>*</span></label>
+                            <div class="col-sm-9">
+                                <input name="commission" value="{{$data->commission}}" type="text" class="form-control" placeholder="commission % ">
                             </div>
                         </div>
 

@@ -91,6 +91,12 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="form-group row mb-3">
+                                <label for="title" class="col-sm-3 col-form-label">Gst</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="gst" class="form-control" placeholder="Gst %" >
+                                </div>
+                            </div>
                             
                             <div class="form-group row mb-3">
                                 <label for="title" class="col-sm-3 col-form-label">Tags<span>*</span></label>

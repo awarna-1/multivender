@@ -52,6 +52,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Product</th>
                         <th scope="col">Variants</th>
+                        <th scope="col">Gst</th>
                         <th scope="col">Actions.</th>
                         <th scope="col"></th>
                     </tr>
@@ -88,6 +89,7 @@
         
                         </td>
         
+                        <td>{{$product->gst}}</td>
                         <td>
 
                             <a href="{{'product_edit/'.$product['id']}}"><i title="Edit" class="fa c-icon fa-pencil"></i></a>

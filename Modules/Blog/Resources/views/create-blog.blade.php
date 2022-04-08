@@ -1,132 +1,140 @@
-@extends('blog::layouts.master')
+@include('admin.layouts.app')
 
-@section('content')
-    
-    @if(session('wrong'))
-    <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 " role="alert">
+<div class="main-container multivendors" id="container">
 
-        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-            <span class="block sm:inline">{{session('wrong')}}</span>
-        </div>
+    @include('admin.layouts.sidebar')
+        <!--  BEGIN CONTENT AREA  -->
+        <div id="content" class="main-content">
 
-    </div>
-    @endif
-    @if(session('wrong'))
-    <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 " role="alert">
-
-        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-            <span class="block sm:inline">{{session('wrong')}}</span>
-        </div>
-
-    </div>
-    @endif
-    @if(session('message'))
-    <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 " role="alert">
-
-        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
-            <span class="block sm:inline">{{session('message')}}</span>
-        </div>
-
-    </div>
-    @endif
-
-
-    @if(count($errors) > 0)
-    @foreach ($errors->all() as $error)
-    <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 " role="alert">
-
-        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-            <span class="block sm:inline">{{$error}}</span>
-        </div>
-
-    </div>
-    @endforeach
-
-    @endif
-    <div class="py-5">
-
-        <div class="bg-white overflow-hidden sm:rounded-lg">
-
-
-            <div class="p-4 bg-white border-b border-gray-200">
-                
-                <form method="POST" action="{{ route('admin.create_blog') }}" enctype="multipart/form-data">
-                    
-                    @csrf
-                    
-                    <!-- Blog Name -->
-                    <div>
-                        <x-label for="name" :value="__('Blog Name')" />
-                        
-                        <x-input id="name" class="block mt-1 w-full" type="text" name="blog_name" required autofocus />
+            <!-- Page Headings Start -->
+            <div class="row justify-content-between align-items-center mb-10 mt-30">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                     <ul>
+                       @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                       @endforeach
+                      </ul>
+                </div>
+                @endif
+                <!-- Page Heading Start-->
+                <div class="col-12 col-lg-auto mb-20">
+                    <div class="page-heading">
+                        <h6>Blog <span>/ New Blog Post</span></h6>
                     </div>
-                    
-                    <!-- Blog status -->
-                    
-                    <label for="status">
-                        Blog status:
-                    </label>
-                    
-                    <input id="blog_status" type="checkbox" checked>
-                    <input type="text" id="show_status" value="published" disabled>
-                    
-                    
-                    <!-- Blog content -->
-                    
-                    <label for="name" class="block font-medium text-sm text-gray-700">
-                        
-                        Blog Content
-                        
-                    </label>
-                    
-                    <textarea id="body" name="body" require>
-                        
-                    </textarea>
-                    
-                    <input name="status" id="status" type="hidden" value="published">
-                    
-                    <div class="py-2 items-end">
-                        
-                        <x-button class="ml-4">
-                            {{ __('Upload') }}
-                        </x-button>
-                        
+                </div>
+                <!--Page Heading End -->
+
+            </div><!-- Page Headings End -->
+
+            <div class="allform-page addblog">
+
+                <h2>Blog Information</h2>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <form action="{{asset('admin/create_blog')}}" method="post"  enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group row mb-3">
+                                <label for="title" class="col-sm-2 col-form-label" >Blog Title <span>*</span> </label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="title" placeholder="Blog Title" name="title">
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-3">
+                                <label for="category" class="col-sm-2 col-form-label">Category <span>*</span> </label>
+                                <div class="col-sm-10">
+                                    <select class="form-control select2" name="category">
+                                        <option>---</option>
+                                        <option value="1">Car</option>
+                                        <option value="2">Bike</option>
+                                        <option value="3">Scooter</option>
+                                        <option value="3">Cycle</option>
+                                        <option value="4">Horse</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row mb-3">
+                                <label for="slug" class="col-sm-2 col-form-label">Slug <span>*</span></label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="slug" placeholder="Slug" name="slug">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="banner" class="col-sm-2 col-form-label">Banner</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control file-upload-text" disabled=""
+                                        placeholder="Choose file" >
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default file-upload-btn">
+                                            Browse...
+                                            <input type="file" class="file-upload" name ="banner_1">
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-3">
+                                <label for="desc" class="col-sm-2 col-form-label">Short Description <span>*</span>
+                                </label>
+                                <div class="col-sm-10">
+                                    <textarea rows="6" cols="150" name="short_description"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-3">
+                                <label for="desc" class="col-sm-2 col-form-label">Description <span>*</span></label>
+                                <div class="col-sm-10">
+                                <textarea rows="6" cols="150" name="full_description"></textarea>
+                                </div>
+                            </div>
+
+           
+                            <div class="form-group row">
+                                <label for="banner" class="col-sm-2 col-form-label">Banner </label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control file-upload-text" disabled=""
+                                        placeholder="Choose file">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default file-upload-btn">
+                                            Browse...
+                                            <input type="file" class="file-upload" name="banner_2">
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-3">
+                                <label for="desc" class="col-sm-2 col-form-label">Meta Description * </label>
+                                <div class="col-sm-10">
+                                    <textarea rows="6" cols="150" name="meta_description"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-3">
+                                <label for="keyword" class="col-sm-2 col-form-label">Meta Keywords </label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="title" placeholder="Meta Keywords" name="meta_keywords">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" value="Save">
+
                     </div>
-                    
-                    
-                </form>
-                
+
+                </div>
+
             </div>
-            
+
         </div>
-      
-        
-        <script>
 
-        CKEDITOR.replace( 'body' ,{
-                filebrowserUploadUrl:"{{route('admin.image_upload',['_token'=>csrf_token()])}}",
-                filebrowserUploadMethod:"form"
-            });
 
-            $(document).ready(function(){
 
-                
-            $('#blog_status').click(function() {
+    </div >
+     <!-- END MAIN CONTAINER -->
 
-            if ($('#blog_status').is(':checked')) {
-                
-                $(' #show_status').val('published');
-                $(' #status').val('published');
-            } else {
-                $(' #show_status').val('unpublished');
-                $(' #status').val('unpublished');
-            }
-
-            });
-        });
             
-            
-            
-                
-        </script>
-        @endsection
+    @include('admin.layouts.footer')

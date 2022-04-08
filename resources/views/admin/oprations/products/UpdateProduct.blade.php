@@ -96,6 +96,15 @@
                                     </select>
                                 </div>
                             </div>
+
+
+                            <div class="form-group row mb-3">
+                                <label for="title" class="col-sm-3 col-form-label">Brand</label>
+                                <div class="col-sm-9">
+                                    <input type="text" value="{{$product->gst}}" name="gst" class="form-control">
+                                </div>
+                            </div>
+
                             
                             <div class="form-group row mb-3">
                                 <label for="title" class="col-sm-3 col-form-label">Tags<span>*</span></label>
