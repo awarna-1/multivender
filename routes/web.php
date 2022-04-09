@@ -345,19 +345,22 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 });
 
 
-// Additional
-
-
+// Additional route admin
 Route::get('admin/generation', function () {
     return view('admin.oprations.order.label_generate');
     ///return 'bkuhjviokokokokokokokokokokokok';
 });
-
 Route::get('admin/details', function () {
     return view('admin.oprations.order.order_details');
 });
-
-
 Route::get('admin/products', function () {
     return view('admin.oprations.order.all_product');
+});
+
+// Additional route seller
+Route::get('admin/all_label', function () {
+    return view('staff.oprations.label_download');
+});
+Route::get('admin/scheduled', function () {
+    return view('staff.oprations.order_schedule');
 });
