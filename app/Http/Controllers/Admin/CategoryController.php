@@ -32,17 +32,21 @@ class CategoryController extends Controller
         $errors = $request->validate([
             'name' => 'required',
             'main_id' => 'numeric',
-            'status' => 'required',
         ]);
 
-        if (Auth::guard('admin')->user()->role == 'seller' || Auth::guard('admin')->user()->role == 'Seller') 
-            $seller_id = Auth::guard('admin')->user()->id;
-            else  $seller_id ='0';
         $data = new category;
+
+        if (Auth::guard('admin')->user()->role == 'seller' || Auth::guard('admin')->user()->role == 'Seller'){
+            $seller_id = Auth::guard('admin')->user()->id;
+            $data->status = 'unpublish';
+        } 
+        else {
+            $seller_id ='0';
+            $data->status = $request->input('status');
+        } 
 
         $data->name = $request->input('name');
         $data->main_id = $request->input('main_id');
-        $data->status = $request->input('status');
         $data->seller_id = $seller_id;
         $data->commission = $request->commission;
 
@@ -79,7 +83,6 @@ class CategoryController extends Controller
         $errors = $request->validate([
             'name' => 'required',
             'main_id' => 'required|min:6|numeric',
-            'status' => 'required',
         ]);
         $data = category::find($request->id);
         $data->name = $request->name;

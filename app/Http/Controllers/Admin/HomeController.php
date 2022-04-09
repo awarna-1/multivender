@@ -22,7 +22,7 @@ class HomeController extends Controller
         $role= Auth::guard('admin')->user()->role;
         $id= Auth::guard('admin')->user()->id;
         $data=[];
-        $data['canvas_color'] = ['0'=>'canvas-pink' , '1'=>'canvas-green' , '2'=>'canvas-blue' , '3'=>'canvas-yellow' , '4'=>'canvas-yellow' , '5'=>'canvas-orange', '6'=>'canvas-gray' , '7'=>'canvas-megenta' ,'8'=>'canvas-purple', '9'=>'canvas-black',  '10'=>'canvas-cyne'];
+        $data['canvas_color'] = ['0'=>'canvas-pink' , '1'=>'canvas-green' , '2'=>'canvas-blue' , '3'=>'canvas-yellow' , '4'=>'canvas-yellow' , '5'=>'canvas-orange', '6'=>'canvas-gray' , '7'=>'canvas-megenta' ,'8'=>'canvas-purple', '9'=>'canvas-black',  '10'=>'canvas-cyne' , '11'=>'canvas-lime' , '12'=>'canvs-silver' , '13'=>'canvas-brown' , '14'=>'canvas-maroon', '15'=>'canvas-olive','16'=>'canvas-aquamarine'];
         if($role == 'Admin' || $role == 'admin'){
             $data['user_count'] = User::get()->count();
             $data['order_count'] = Order::get()->count();

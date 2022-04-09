@@ -8,57 +8,6 @@
     <!--  BEGIN CONTENT AREA  -->
     <div id="content" class="main-content">
 
-
-         <!-- <div class="row">
-                    <div class="panel panel-primary filterable">
-                        <div class="panel-heading">
-                            <h4 class="panel-title text-white">All Orders</h4>
-                            <div class="pull-right">
-                                <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>
-                            </div>
-                        </div>
-                        <table class="table" style="border: 1px solid #dadada;">
-                            <thead>
-                                <tr class="filters">
-                                    <th><input type="text" class="form-control input border" placeholder="Sr No."></th>
-                                    <th><input type="text" class="form-control input border" placeholder="Order Id"></th>
-                                    <th><input type="text" class="form-control input border" placeholder="Payment Id"></th>
-                                    <th><input type="text" class="form-control input border" placeholder="Rs."></th>
-                                    <th><input type="text" class="form-control input border" placeholder="Address"></th>
-                                    <th><input type="text" class="form-control input border" placeholder="Status"></th>
-                                    <th>
-                                        <div style="display:flex;"><input type="text" placeholder="To" onfocus="(this.type='date')" onblur="(this.type='text')" class="border date" onchange="data_filter()" id="to_date">
-                                            <input type="text" placeholder="From" onfocus="(this.type='date')" onblur="(this.type='text')" class="border date" onchange="data_filter()" id="from_date">
-                                        </div>
-                                    </th>
-                                </tr>
-
-                            </thead>
-                            <tbody id="table_data" style="text-align: center">
-                            <?php $i = 1; ?>
-                                @foreach($data['orders'] as $order)
-                                <tr>
-                                    <td class="border">{{$i++}}</td>
-                                    <td class="border">{{$order->order_id}}</td>
-                                    <td class="border">{{$order->razorpay_payment_id}}</td>
-                                    <td class="border">{{$order->amount}}</td>
-                                    <td class="border">{{$data['address'][$order->address_id]->name}}, {{$data['address'][$order->address_id]->address}} <br>
-                                        ({{$data['address'][$order->address_id]->pincode}}) , {{$data['address'][$order->address_id]->state}} </td>
-                                    <td class="border">{{$order->status}}</td>
-                                    <td class="border">{{$order->created_at}}</td>
-
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="pagination-cover">
-                        {{ $data['orders']->links()}}
-                    </div>
-                </div> -->
-
-
-
         <div class="order_details">
             <h2 class="pb-2">Order Details</h2>
             <div class="row" style="    width: 100%;display: block;">
@@ -168,30 +117,7 @@
                                         <label for="id">Sub Order Num</label>
                                         <input type="text" class="form-control" id="id" placeholder="Sub Order Num">
                                     </div>
-                                    <!-- <div class="form-group col-md-8">
-                                        <label for="id">SLA Breach</label>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="flexCheckDefault">
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                Breached
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="flexCheckChecked" checked>
-                                            <label class="form-check-label" for="flexCheckChecked">
-                                                Breaching Soon
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="flexCheckDefault">
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                Others
-                                            </label>
-                                        </div>
-                                    </div> -->
+                                   
 
                                     <div class="form-group col-md-2 pt-3">
                                         <input type="submit" value="Clear" class="clear">
