@@ -21,6 +21,9 @@
     @endforeach
 
     @endif
+    <?php use Illuminate\Support\Facades\Auth;
+ $role= Auth::guard('admin')->user()->role;;
+ ?>
 
 
         @include('admin.layouts.sidebar')
@@ -68,6 +71,8 @@
                             </div>
                         </div>
 
+
+                        @if($role == 'Admin')
                         <div class="form-group row mb-3">
                             <label for="slug" class="col-sm-3 col-form-label">Status</label>
                             <div class="col-sm-9">
@@ -82,6 +87,7 @@
 
                             </div>
                         </div>
+                        @endif
 
                         <button type="submit" id="Submit_form" class="btn btn-warning">Done</button>
                         

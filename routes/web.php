@@ -147,6 +147,10 @@ Route::post('admin/add_address', [commanController::class, 'add_address']);
 Route::get('admin/update_active/{admin_id}/{status}', [commanController::class, 'update_active']);
 Route::get('admin/blog_update_active/{blog_id}/{status}', [commanController::class, 'update_active']);
 
+// order page ajax funtions
+
+Route::post('admin/orderfilter', [OrderController::class, 'orderfilter']);
+
 
 
 

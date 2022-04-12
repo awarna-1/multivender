@@ -73,8 +73,9 @@ class commanController extends Controller
             'user_id'   => $request->user,
             'method'    => 'COD',
             'amount'    => $varient[0]->price,
-            'status'    => 'paid',
+            'status'    => '2',
             'address_id' => $request->address,
+            'product_id' => $request->product_id,
             'created_at' => $request->date
         ];
         $order->insert($order_dateail);
@@ -327,7 +328,7 @@ class commanController extends Controller
         $result = '';
         $uri = $_SERVER['HTTP_HOST'];
 
-        $base_path = '/' . 'uploads/gallery/';
+        $base_path = '/' . 'uploads/gallery/';   
         foreach ($products['product'] as $product) {
             if (isset($request->amount_min) && $request->amount_min != null) {
                 $total_count = 0;

@@ -21,6 +21,9 @@
     @endforeach
 
     @endif
+    <?php use Illuminate\Support\Facades\Auth;
+ $role= Auth::guard('admin')->user()->role;;
+ ?>
 
 
         @include('admin.layouts.sidebar')
@@ -64,14 +67,15 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-3">
+                        <div class="form-group row mb-3" @if($role !='Admin')  style ="display:none" @endif> 
                             <label for="title" class="col-sm-3 col-form-label">commission<span>*</span></label>
                             <div class="col-sm-9">
                                 <input name="commission" value="{{$data->commission}}" type="text" class="form-control" placeholder="commission % ">
                             </div>
                         </div>
 
-                        <div class="form-group row mb-3">
+                     
+                        <div class="form-group row mb-3" @if($role !='Admin')  style ="display:none" @endif> 
                             <label for="slug" class="col-sm-3 col-form-label">Status</label>
                             <div class="col-sm-9">
                                 
@@ -85,7 +89,6 @@
 
                             </div>
                         </div>
-
                         <button type="submit" id="Submit_form" class="btn btn-warning">Done</button>
                         
                     </div>
