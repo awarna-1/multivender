@@ -83,10 +83,9 @@
                                         <input type="submit" value="Download all Label" style="width: 200px;">
                                     </div><!--all download end -->
                                     
+                                    <!--add product card here -->
+                                    
                                 </div>
-                                
-
-
                             </div>
                         </div><!-- 1st tab end-->
 
