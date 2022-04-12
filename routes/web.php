@@ -175,8 +175,8 @@ Route::get('brand/{id}', [Live_searchController::class, 'brand'])->name('brand')
 Route::get('/product/{id}', [Live_searchController::class, 'products'])->name('products');
 Route::post('/variant_change', [Live_searchController::class, 'variant_change'])->name('variant_change');
 
-Route::get('/addWishList/{product_id}' ,[WishlistController::class, 'create']);
-Route::get('/getWhishList' ,[WishlistController::class, 'index']);
+Route::get('/addWishList/{product_id}', [WishlistController::class, 'create']);
+Route::get('/getWhishList', [WishlistController::class, 'index']);
 
 
 
@@ -201,10 +201,10 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
 
 
-    //custumers route
+        //custumers route
         Route::get('all_costumers', function () {
-            $data=User::paginate(12);
-            return view('admin.oprations.costumers.all_costumers' , compact('data'));
+            $data = User::paginate(12);
+            return view('admin.oprations.costumers.all_costumers', compact('data'));
         });
         Route::get('add_costumers', function () {
             return view('admin.oprations.costumers.add_costumer');
@@ -221,12 +221,12 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
         //Staff routes
         Route::get('staff', 'StaffController@index')->name('staff');
-          Route::get('staff_add', function () {
+        Route::get('staff_add', function () {
             return view('admin.oprations.staff_add');
-        });    
-        Route::post('staff/new' , [StaffController::class, 'create']);
+        });
+        Route::post('staff/new', [StaffController::class, 'create']);
         Route::post('staff', 'StaffController@create')->name('StaffCreate');
-        Route::get('staff/edit/{id}' , [StaffController::class, 'edit']);
+        Route::get('staff/edit/{id}', [StaffController::class, 'edit']);
         Route::get('staff/Delete/{id?}', 'StaffController@del')->name('StaffDelete');
         Route::post('/staff/update', 'StaffController@update')->name('StaffUpdate');
 
@@ -304,24 +304,44 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('product/get_pro_img', 'ProductController@product_img');
         Route::post('product/getVariant', 'ProductController@variant')->name('getVariant');
 
+
+        // support route
+        Route::get('support', function () {
+            return view('admin.oprations.support.index');
+        });
+        Route::get('product_query', function () {
+            return view('admin.oprations.support.product_query');
+        });
+
+        // marketing route
+        Route::get('coupan', function () {
+            return view('admin.oprations.coupan.index');
+        });
+
+        // add on 
+        Route::get('addOn', function () {
+            return view('admin.oprations.add_on.index');
+        });
+
+
         // orders
         Route::get('all_orders', function () {
             $data['orders'] = DB::table("orders")->orderBy('id', 'DESC')->paginate(50);
             $address = DB::table('addresses')->get();
-            $data['address'] =[];
-            foreach($address as $addres){
+            $data['address'] = [];
+            foreach ($address as $addres) {
                 $data['address'][$addres->id] = $addres;
-                }
+            }
             return view('admin.oprations.order.index', compact('data'));
         });
         Route::get('new_order', function () {
-            $data=[];
+            $data = [];
             $data['users'] = User::all();
             $data['products'] = Product::all();
-            $data['categories'] = Category::pluck('name','id');
+            $data['categories'] = Category::pluck('name', 'id');
             return view('admin.oprations.order.create', compact('data'));
         });
-        
+
         Route::post('order_create', [commanController::class, 'order_create'])->name('image_upload');
 
 
@@ -342,9 +362,9 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('Blog/edit/{id}', [BlogCategoryController::class, 'edit']);
         Route::get('Blog/Delete/{id}', [BlogCategoryController::class, 'del']);
         Route::post('blog/update', [BlogCategoryController::class, 'update'])->name('update_blogCategory');
-        });
+    });
 
-        // wish list routs
+    // wish list routs
 
 });
 

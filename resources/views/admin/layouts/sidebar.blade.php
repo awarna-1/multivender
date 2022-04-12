@@ -416,15 +416,15 @@
        <span class="tooltip">Support</span>
         <ul class="collapse pl-4" id="support" >
             <li>
-                <a href="#"> Ticket </a>
+                <a href="{{asset('/admin/support')}}"> Ticket </a> 
             </li>
             <li>
-                <a href="#">Product Queries</a>
+                <a href="{{asset('/admin/product_query')}}">">Product Queries</a>
             </li>
         </ul>
      </li>
      <li>
-       <a href="#">
+       <a href="{{asset('admin/addOn')}}">
          <i class='fa fa-desktop' ></i>
          <span class="links_name">Addon Manager </span>
        </a>
@@ -438,7 +438,7 @@
        <span class="tooltip">Marketing</span>
         <ul class="collapse pl-4" id="marketing" >
             <li>
-                <a href="#"> Coupon </a>
+                <a href="{{asset('admin/coupan')}}"> Coupon </a>  
             </li>
         </ul>
      </li>

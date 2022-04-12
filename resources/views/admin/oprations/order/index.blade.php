@@ -84,6 +84,8 @@
                                     </div><!--all download end -->
                                     
                                     <!--add product card here -->
+
+                                    <div id="card_box1"></div>
                                     
                                 </div>
                             </div>
