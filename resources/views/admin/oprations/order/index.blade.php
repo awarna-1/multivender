@@ -89,7 +89,7 @@
                             aria-labelledby="nav-home-tab">
                             <div class="border">
                                 <div class="filter d-flex pb-2">
-                                    <h5 style="width: 75%;">Filter  </h5>
+                                    <h5 style="width: 75%;">Filter</h5>
                                     <form action="/action_page.php">
                                         <input type="text" placeholder="Search SKU, Product ID" name="search" style="width: 240px;padding: 6px 10px 5px;border: 1px solid #ced4da">
                                         <button type="submit" style="background: #000;color: #fff;padding: 5px 10px 4px;position: relative;left: -6px;"><i class="fa fa-search"></i></button>
@@ -124,7 +124,62 @@
                                     <div class="form-group col-md-2 pt-3">
                                         <input type="submit" value="Filter">
                                     </div>
-                                </div>
+                                </div><!--filter top end -->
+
+                                <div class="pdt_blog">
+                                    <h4 class=" mt-4">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    Order No. 64447097096 <span>23 Jan, 11:34 AM </span></h4>
+                                    <h5>1 Products</h5>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <img src="http://127.0.0.1:8000/admin-assets/images/products.jpg">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <h6>Products Name</h6>
+                                            <p>Sub Order Num: 64447097096</p>
+                                            <p>Size: 0-6 Months</p>
+                                            <p>Product SKU: ct30aYN9</p>
+                                            <!-- <p>Product Id: 1G2I4C6G</p> -->
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <h3 class="quality">Customer Name</h3>
+                                            <h3 class="quality">Customer Address</h3>
+                                            <h3 class="quality">Qty: 1</h3>
+                                            <h3 class="quality">Billing Price</h3>
+                                        </div>
+                                        
+                                    </div><!--1st product end -->
+                            </div>
+                            <div class="pdt_blog">
+                                    <h4 class=" mt-4">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    Order No. 64447097096 <span>23 Jan, 11:34 AM </span></h4>
+                                    <h5>1 Products</h5>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <img src="http://127.0.0.1:8000/admin-assets/images/products.jpg">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <h6>Products Name</h6>
+                                            <p>Sub Order Num: 64447097096</p>
+                                            <p>Size: 0-6 Months</p>
+                                            <p>Product SKU: ct30aYN9</p>
+                                            <!-- <p>Product Id: 1G2I4C6G</p> -->
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <h3 class="quality">Customer Name</h3>
+                                            <h3 class="quality">Customer Address</h3>
+                                            <h3 class="quality">Qty: 1</h3>
+                                            <h3 class="quality">Billing Price</h3>
+                                        </div>
+                                        
+                                    </div><!--1st product end -->
+                            </div>
                                 
 
                             </div>
@@ -421,15 +476,228 @@
                                     <button type="submit" class="notice">Notices<span>3 New</span></button>
                                 </div>
                             </div>
+                            <div class="pdt_blog">
+                                    <h4 class=" mt-4">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    Order No. 64447097096 <span>23 Jan, 11:34 AM </span></h4>
+                                    <h5>1 Products</h5>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <img src="http://127.0.0.1:8000/admin-assets/images/products.jpg">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <h6>Products Name</h6>
+                                            <p>Sub Order Num: 64447097096</p>
+                                            <p>Size: 0-6 Months</p>
+                                            <p>Product SKU: ct30aYN9</p>
+                                            <!-- <p>Product Id: 1G2I4C6G</p> -->
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <h3 class="quality">Customer Name</h3>
+                                            <h3 class="quality">Customer Address</h3>
+                                            <h3 class="quality">Qty: 1</h3>
+                                            <h3 class="quality">Billing Price</h3>
+                                        </div>
+                                        
+                                    </div><!--1st product end -->
+                            </div>
+                            <div class="pdt_blog">
+                                    <h4 class=" mt-4">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    Order No. 64447097096 <span>23 Jan, 11:34 AM </span></h4>
+                                    <h5>1 Products</h5>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <img src="http://127.0.0.1:8000/admin-assets/images/products.jpg">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <h6>Products Name</h6>
+                                            <p>Sub Order Num: 64447097096</p>
+                                            <p>Size: 0-6 Months</p>
+                                            <p>Product SKU: ct30aYN9</p>
+                                            <!-- <p>Product Id: 1G2I4C6G</p> -->
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <h3 class="quality">Customer Name</h3>
+                                            <h3 class="quality">Customer Address</h3>
+                                            <h3 class="quality">Qty: 1</h3>
+                                            <h3 class="quality">Billing Price</h3>
+                                        </div>
+                                        
+                                    </div><!--1st product end -->
+                            </div>
                         </div>
                         <div class="tab-pane fade" id="nav-trans" role="tabpanel" aria-labelledby="nav-about-tab">
-                            <p>Ship by In-Transit</p>
+                        <div class="pdt_blog">
+                                    <h4 class=" mt-4">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    Order No. 64447097096 <span>23 Jan, 11:34 AM </span></h4>
+                                    <h5>1 Products</h5>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <img src="http://127.0.0.1:8000/admin-assets/images/products.jpg">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <h6>Products Name</h6>
+                                            <p>Sub Order Num: 64447097096</p>
+                                            <p>Size: 0-6 Months</p>
+                                            <p>Product SKU: ct30aYN9</p>
+                                            <!-- <p>Product Id: 1G2I4C6G</p> -->
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <h3 class="quality">Customer Name</h3>
+                                            <h3 class="quality">Customer Address</h3>
+                                            <h3 class="quality">Qty: 1</h3>
+                                            <h3 class="quality">Billing Price</h3>
+                                        </div>
+                                        
+                                    </div><!--1st product end -->
+                            </div>
+                            <div class="pdt_blog">
+                                    <h4 class=" mt-4">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    Order No. 64447097096 <span>23 Jan, 11:34 AM </span></h4>
+                                    <h5>1 Products</h5>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <img src="http://127.0.0.1:8000/admin-assets/images/products.jpg">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <h6>Products Name</h6>
+                                            <p>Sub Order Num: 64447097096</p>
+                                            <p>Size: 0-6 Months</p>
+                                            <p>Product SKU: ct30aYN9</p>
+                                            <!-- <p>Product Id: 1G2I4C6G</p> -->
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <h3 class="quality">Customer Name</h3>
+                                            <h3 class="quality">Customer Address</h3>
+                                            <h3 class="quality">Qty: 1</h3>
+                                            <h3 class="quality">Billing Price</h3>
+                                        </div>
+                                        
+                                    </div><!--1st product end -->
+                            </div>
                         </div>
                         <div class="tab-pane fade" id="nav-rto" role="tabpanel" aria-labelledby="nav-about-tab">
-                            <p>RTO</p>
+                        <div class="pdt_blog">
+                                    <h4 class=" mt-4">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    Order No. 64447097096 <span>23 Jan, 11:34 AM </span></h4>
+                                    <h5>1 Products</h5>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <img src="http://127.0.0.1:8000/admin-assets/images/products.jpg">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <h6>Products Name</h6>
+                                            <p>Sub Order Num: 64447097096</p>
+                                            <p>Size: 0-6 Months</p>
+                                            <p>Product SKU: ct30aYN9</p>
+                                            <!-- <p>Product Id: 1G2I4C6G</p> -->
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <h3 class="quality">Customer Name</h3>
+                                            <h3 class="quality">Customer Address</h3>
+                                            <h3 class="quality">Qty: 1</h3>
+                                            <h3 class="quality">Billing Price</h3>
+                                        </div>
+                                        
+                                    </div><!--1st product end -->
+                            </div>
+                            <div class="pdt_blog">
+                                    <h4 class=" mt-4">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    Order No. 64447097096 <span>23 Jan, 11:34 AM </span></h4>
+                                    <h5>1 Products</h5>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <img src="http://127.0.0.1:8000/admin-assets/images/products.jpg">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <h6>Products Name</h6>
+                                            <p>Sub Order Num: 64447097096</p>
+                                            <p>Size: 0-6 Months</p>
+                                            <p>Product SKU: ct30aYN9</p>
+                                            <!-- <p>Product Id: 1G2I4C6G</p> -->
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <h3 class="quality">Customer Name</h3>
+                                            <h3 class="quality">Customer Address</h3>
+                                            <h3 class="quality">Qty: 1</h3>
+                                            <h3 class="quality">Billing Price</h3>
+                                        </div>
+                                        
+                                    </div><!--1st product end -->
+                            </div>
                         </div>
                         <div class="tab-pane fade" id="nav-deli" role="tabpanel" aria-labelledby="nav-about-tab">
-                            <p>Deliver</p>
+                        <div class="pdt_blog">
+                                    <h4 class=" mt-4">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    Order No. 64447097096 <span>23 Jan, 11:34 AM </span></h4>
+                                    <h5>1 Products</h5>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <img src="http://127.0.0.1:8000/admin-assets/images/products.jpg">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <h6>Products Name</h6>
+                                            <p>Sub Order Num: 64447097096</p>
+                                            <p>Size: 0-6 Months</p>
+                                            <p>Product SKU: ct30aYN9</p>
+                                            <!-- <p>Product Id: 1G2I4C6G</p> -->
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <h3 class="quality">Customer Name</h3>
+                                            <h3 class="quality">Customer Address</h3>
+                                            <h3 class="quality">Qty: 1</h3>
+                                            <h3 class="quality">Billing Price</h3>
+                                        </div>
+                                        
+                                    </div><!--1st product end -->
+                            </div>
+                            <div class="pdt_blog">
+                                    <h4 class=" mt-4">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    Order No. 64447097096 <span>23 Jan, 11:34 AM </span></h4>
+                                    <h5>1 Products</h5>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <img src="http://127.0.0.1:8000/admin-assets/images/products.jpg">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <h6>Products Name</h6>
+                                            <p>Sub Order Num: 64447097096</p>
+                                            <p>Size: 0-6 Months</p>
+                                            <p>Product SKU: ct30aYN9</p>
+                                            <!-- <p>Product Id: 1G2I4C6G</p> -->
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <h3 class="quality">Customer Name</h3>
+                                            <h3 class="quality">Customer Address</h3>
+                                            <h3 class="quality">Qty: 1</h3>
+                                            <h3 class="quality">Billing Price</h3>
+                                        </div>
+                                        
+                                    </div><!--1st product end -->
+                            </div>
                         </div>
 
                         <div class="tab-pane fade" id="nav-cancel" role="tabpanel" aria-labelledby="nav-cancel-tab">

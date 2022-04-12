@@ -364,3 +364,13 @@ Route::get('admin/all_label', function () {
 Route::get('admin/scheduled', function () {
     return view('staff.oprations.order_schedule');
 });
+Route::get('admin/review', function () {
+    return view('staff.oprations.review_manager');
+});
+Route::get('admin/payment', function () {
+    return view('staff.oprations.payment');
+});
+
+Route::get('admin/pay', function () {
+    return view('staff.oprations.pay_order');
+});

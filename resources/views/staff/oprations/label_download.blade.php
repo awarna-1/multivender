@@ -1,32 +1,6 @@
 
 @include('staff.layouts.app')
 
-<style>
-    .label thead {
-    background: rgba(0,0,0,.05);
-    }
-.label .table-striped tbody tr:nth-of-type(odd) {
-    background-color: unset;
-}
-.label .top h6 {
-    background: rgba(0,0,0,.05);
-    padding: 15px 20px;
-    border: 1px solid #ccc;
-}
-.label .top h6 span a{
-float: right;
-    background: rgba(0,0,0,.05);
-    padding: 5px 10px;
-    color: #000;
-    border: 1px solid #ccc;
-    font-size: 13px;
-    font-weight: 600;}
-    .label .top p{color: #5f5f5f;}
-    .label .table tbody tr td p {
-    color: #5f5f5f;
-    margin-bottom: 0px;
-}
-</style>
 <!--  BEGIN MAIN CONTAINER  -->
 <div class="main-container multivendors" id="container">
 
