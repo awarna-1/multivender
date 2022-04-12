@@ -86,11 +86,16 @@ position: absolute;
 
             <div class="nav nav-tabs nav-fill pt-2" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link active" id="nav-transit-tab" data-toggle="tab" href="#nav-transit" role="tab" aria-controls="nav-transit" aria-selected="true">Transaction</a>
-                <a class="nav-item nav-link" id="nav-trust-tab" data-toggle="tab" href="#nav-trust" role="tab" aria-controls="nav-trust" aria-selected="false">Distrustment</a>
+                <a class="nav-item nav-link" id="nav-trust-tab" data-toggle="tab" href="#nav-trust" role="tab" aria-controls="nav-trust" aria-selected="false">Disbursement</a>
             </div>
 
             <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-transit" role="tabpanel" aria-labelledby="nav-transit-tab">
+                   <div class="row">
+                       <div class="col-md-4">card1</div>
+                       <div class="col-md-4">card2</div>
+                   </div>
+                
                     <table class="table table-striped custab mb-2">
                         <thead>
                             <tr>
@@ -99,7 +104,7 @@ position: absolute;
                                 <th>Order ID </th>
                                 <th>Product Name</th>
                                 <th>Total Product </th>
-                                <th>Charge</th>
+                                <th>Shipped Charge</th>
                                 <th>Foggmart Fee</th>
                                 <th>Other </th>
                                 <th>Total Payment</th>
