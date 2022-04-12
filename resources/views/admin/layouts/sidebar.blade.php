@@ -24,7 +24,7 @@
   height: 100%;
   width: 78px;
   background: #11101D;
-  padding: 6px 14px;
+  padding: 0px 10px;
   z-index: 99;
   transition: all 0.5s ease;
 }
@@ -78,7 +78,7 @@
 }
 .sidebar .nav-list{
   margin-top: 20px;
-  height: 100%;
+  height: 140vh;
 }
 .sidebar li{
   position: relative;
@@ -160,7 +160,7 @@
 }
 .sidebar li a .links_name{
   color: #fff;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 400;
   white-space: nowrap;
   opacity: 0;
@@ -181,7 +181,7 @@
 .sidebar li i{
   height: 50px;
   line-height: 50px;
-  font-size: 18px;
+  font-size: 15px;
   border-radius: 12px;
 }
 .sidebar li.profile{
@@ -407,6 +407,95 @@
          <span class="links_name">Uploaded Files</span>
        </a>
        <span class="tooltip">Uploaded Files</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class='fa fa-life-ring' ></i>
+         <span class="links_name" data-toggle="collapse" data-target="#support" aria-expanded="false" aria-controls="Blog">Support<i class="fa fa-angle-right" aria-hidden="true"></i></span>
+       </a>
+       <span class="tooltip">Support</span>
+        <ul class="collapse pl-4" id="support" >
+            <li>
+                <a href="#"> Ticket </a>
+            </li>
+            <li>
+                <a href="#">Product Queries</a>
+            </li>
+        </ul>
+     </li>
+     <li>
+       <a href="#">
+         <i class='fa fa-desktop' ></i>
+         <span class="links_name">Addon Manager </span>
+       </a>
+       <span class="tooltip">Addon Manager </span>
+     </li>
+     <li>
+       <a href="#">
+       <i class="fa fa-bar-chart"></i>
+         <span class="links_name" data-toggle="collapse" data-target="#marketing" aria-expanded="false" aria-controls="Blog">Marketing<i class="fa fa-angle-right" aria-hidden="true"></i></span>
+       </a>
+       <span class="tooltip">Marketing</span>
+        <ul class="collapse pl-4" id="marketing" >
+            <li>
+                <a href="#"> Coupon </a>
+            </li>
+        </ul>
+     </li>
+     <li>
+       <a href="#">
+         <i class='fa fa-cogs' ></i>
+         <span class="links_name" data-toggle="collapse" data-target="#affilicate" aria-expanded="false" aria-controls="Blog">Affilicate System<i class="fa fa-angle-right" aria-hidden="true"></i></span>
+       </a>
+       <span class="tooltip">Affilicate System</span>
+        <ul class="collapse pl-4" id="affilicate" >
+            <li>
+                <a href="#"> Affiliate Registration Form </a>
+            </li>
+            <li>
+                <a href="#">Affiliate Configurations</a>
+            </li>
+            <li>
+                <a href="#"> Affiliate refferal </a>
+            </li>
+            <li>
+                <a href="#"> Refferal refferal </a>
+            </li>
+            <li>
+                <a href="#"> Affiliate Withdraw Request  </a>
+            </li>
+            <li>
+                <a href="#"> Affiliate Logs</a>
+            </li>
+        </ul>
+        
+     </li>
+     <li>
+       <a href="#">
+         <i class='fa fa-cog' ></i>
+         <span class="links_name" data-toggle="collapse" data-target="#config" aria-expanded="false" aria-controls="Blog">Web Config<i class="fa fa-angle-right" aria-hidden="true"></i></span>
+       </a>
+       <span class="tooltip">Web Config</span>
+        <ul class="collapse pl-4" id="config" >
+            <li>
+                <a href="#"> Home Banner </a>
+            </li>
+            <li>
+                <a href="#">Category Banner </a>
+            </li>
+            <li>
+                <a href="#"> Page Content </a>
+            </li>
+            <li>
+                <a href="#"> About Us </a>
+            </li>
+            <li>
+                <a href="#"> Privacy Policy  </a>
+            </li>
+            <li>
+                <a href="#"> Contact Details </a>
+            </li>
+        </ul>
      </li>
      <!-- <li>
        <a href="#">
